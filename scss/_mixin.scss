@@ -1,0 +1,94 @@
+@use "var";
+
+
+//Mixin para modificar los botones XL
+@mixin btn-xl {
+  padding: 1.25rem 2.25rem;
+  font-size: 1.125rem;
+  background-color: var.$colorbtn;
+  /* Fondo principal */
+  color: #fff;
+  /* Color de texto */
+  border: 2px solid var.$colorbtn;
+  /* Borde del botón */
+  font-weight: bold;
+  border-radius: 5px;
+  /* Bordes redondeados */
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var.$colorbtn-hover;
+    /* Color de fondo al pasar el mouse */
+    border-color: var.$colorbtn-hover;
+    /* Cambio en el borde */
+    color: #fff;
+    /* Asegura que el texto sea visible */
+  }
+}
+
+@mixin btn-social {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  border-radius: 100%;
+}
+
+@mixin title {
+  font-size: 2.5rem;
+  margin-top: 0px;
+  margin-bottom: 1rem;
+}
+
+@mixin subtitles {
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 4rem;
+}
+
+
+// Mixin para media query de ancho mínimo de 576px
+@mixin min-width-576 {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+// Mixin para media query de ancho mínimo de 768px
+@mixin min-width-768 {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+// Mixin para media query de ancho mínimo de 992px
+@mixin min-width-992 {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+// Mixin para media query de ancho mínimo de 1200px
+@mixin min-width-1200 {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+// Mixin para media query de ancho mínimo de 1400px
+@mixin min-width-1400 {
+  @media (min-width: 1400px) {
+    @content;
+  }
+}
+
+// Mixin para media query de ancho maximo de 991px
+@mixin max-width-991 {
+  @media (max-width: 991px) {
+    @content;
+  }
+}
