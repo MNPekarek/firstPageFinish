@@ -1,0 +1,191 @@
+@use "mixin";
+
+// Sección del team
+.page-section {
+  
+    &#team {
+      background-color: #fff;
+      .container {
+        // Contenedor principal
+  
+        .text-center {
+  
+          // Títulos
+          .section-heading {
+            // Título principal
+            @include mixin.title; 
+          }
+  
+          .section-subheading {
+            // Subtítulo
+            @include mixin.subtitles; 
+            color: rgba(108, 117, 125, 0.75); // Gris tenue
+          }
+        }
+  
+        .row {
+  
+          // Fila de miembros del equipo        
+          .col-lg-4 {
+            // Columnas para cada miembro del equipo
+  
+            .team-member {
+              // Estilo general para los miembros
+              margin-bottom: 3rem;
+              text-align: center;
+  
+              img {
+                // Estilo para las imágenes
+                width: 14rem;
+                height: 14rem;
+                border-width: 0.5rem;
+                border-style: solid;
+                border-color: rgba(0, 0, 0, 0.1);
+                border-image: initial;
+              }
+  
+              h4 {
+                // Nombre del miembro
+                margin-top: 1.5rem;
+                margin-bottom: 0px;
+              }
+  
+              p {
+                line-height: 1.75;
+                color: rgba(108, 117, 125, 0.75); // Gris tenue
+              }
+  
+              .btn {
+                &.btn-dark {
+                  // Botón oscuro
+  
+                  &.btn-social {
+                    // Botones sociales   
+                    @include mixin.btn-social;               
+                  }
+                }
+              }
+            }
+          }
+        }
+  
+        .row:last-of-type {
+          // Segunda fila con la descripción
+  
+          .col-lg-8 {
+            &.mx-auto {
+  
+              // Columna centrada
+              .text-center {
+                p {
+                  line-height: 1.75;
+                  color: #808080;
+                  
+  
+                  &.large {
+                    // Texto final estilizado
+                    
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Estilos específicos para Night Mode
+  body.night-mode {
+    .page-section {
+    
+      &#team {
+        background-color: #2e2c2c;
+        .container {
+          // Contenedor principal
+    
+          .text-center {
+    
+            // Títulos
+            .section-heading {
+              // Título principal
+              @include mixin.title; 
+            }
+    
+            .section-subheading {
+              // Subtítulo
+              @include mixin.subtitles; 
+              color: #808080;
+            }
+          }
+    
+          .row {
+    
+            // Fila de miembros del equipo        
+            .col-lg-4 {
+              // Columnas para cada miembro del equipo
+    
+              .team-member {
+                // Estilo general para los miembros
+                margin-bottom: 3rem;
+                text-align: center;
+    
+                img {
+                  // Estilo para las imágenes
+                  width: 14rem;
+                  height: 14rem;
+                  border-width: 0.5rem;
+                  border-style: solid;
+                  border-color: rgba(0, 0, 0, 0.1);
+                  border-image: initial;
+                }
+    
+                h4 {
+                  // Nombre del miembro
+                  margin-top: 1.5rem;
+                  margin-bottom: 0px;
+                }
+    
+                p {
+                  line-height: 1.75;
+                  color: #808080;
+                }
+    
+                .btn {
+                  &.btn-dark {
+                    // Botón oscuro
+    
+                    &.btn-social {
+                      // Botones sociales   
+                      @include mixin.btn-social;               
+                    }
+                  }
+                }
+              }
+            }
+          }
+    
+          .row:last-of-type {
+            // Segunda fila con la descripción
+    
+            .col-lg-8 {
+              &.mx-auto {
+    
+                // Columna centrada
+                .text-center {
+                  p {
+                    line-height: 1.75;
+                    color: #808080;
+    
+                    &.large {
+                      // Texto final estilizado
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }  
+  }

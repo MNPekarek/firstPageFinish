@@ -1,0 +1,208 @@
+
+@use "mixin";
+@use "var";
+
+// Portfolio Grid Section
+.page-section {
+    padding: 6rem 0px;
+    background-color: #f8f9fa;
+    &#portfolio {
+      // Estilos específicos para la sección de portafolio
+  
+      .container {
+        // Estilos para el contenedor
+  
+        .text-center {
+  
+          // Estilos para la sección de texto centrado
+          h2 {
+            // Estilos para el título de la sección
+            @include mixin.title; 
+          }
+  
+          h3 {
+            // Estilos para el subtítulo de la sección
+            @include mixin.subtitles; 
+            color: var.$color-muted;  
+          }
+        }
+  
+        .row {
+  
+          // Estilos para la fila principal
+          .col-lg-4,
+          .col-sm-6 {
+            .portfolio-item {
+              // Estilos para cada ítem del portafolio
+              max-width: 26rem;
+              margin-left: auto;
+              margin-right: auto;
+  
+              .portfolio-link {
+                // Estilos para el enlace del portafolio
+                position: relative;
+                display: block;
+                margin: 0px auto;
+                color: #ffc400;
+  
+                &:hover {
+                  // Estilos para hover del enlace
+  
+                }
+  
+                .portfolio-hover {
+                  // Estilos para la capa de hover
+                  display: flex;
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  background: rgba(255, 200, 0, 0.9);
+                  align-items: center;
+                  justify-content: center;
+                  opacity: 0;
+                  transition: opacity ease-in-out 0.25s;
+  
+                  .portfolio-hover-content {
+                    // Estilos para el contenido del hover
+                    font-size: 1.25rem;
+                    color: white;
+  
+                    .fa-3x {
+                      // Estilos para el ícono en hover
+                    }
+                  }
+                }
+  
+                img {
+                  // Estilos para la imagen del ítem
+                }
+              }
+  
+              .portfolio-caption {
+                // Estilos para el pie de cada ítem
+                padding: 1.5rem;
+                text-align: center;
+                background-color: #fff;
+  
+                .portfolio-caption-heading {
+                  // Estilos para el encabezado del pie
+                  font-size: 1.5rem;
+                  font-weight: 700;
+                  margin-bottom: 0;
+                }
+  
+                .portfolio-caption-subheading {
+                  // Estilos para el subtítulo del pie
+                  font-style: italic;
+                  color: var.$color-muted;  
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // Estilos específicos para Night Mode
+  body.night-mode{
+    .page-section {
+      background-color: #2e2c2c;
+  
+      &#portfolio {
+        // Estilos específicos para la sección de portafolio
+    
+        .container {
+          // Estilos para el contenedor
+    
+          .text-center {
+    
+            // Estilos para la sección de texto centrado
+            h2 {
+              // Estilos para el título de la sección
+              @include mixin.title; 
+            }
+    
+            h3 {
+              // Estilos para el subtítulo de la sección
+              @include mixin.subtitles; 
+              color: #808080;
+            }
+          }
+    
+          .row {
+    
+            // Estilos para la fila principal
+            .col-lg-4,
+            .col-sm-6 {
+              .portfolio-item {
+                // Estilos para cada ítem del portafolio
+                max-width: 26rem;
+                margin-left: auto;
+                margin-right: auto;
+    
+                .portfolio-link {
+                  // Estilos para el enlace del portafolio
+                  position: relative;
+                  display: block;
+                  margin: 0px auto;
+                  color: #ffc400;
+    
+                  &:hover {
+                    // Estilos para hover del enlace
+    
+                  }
+    
+                  .portfolio-hover {
+                    // Estilos para la capa de hover
+                    display: flex;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(255, 200, 0, 0.9);
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 0;
+                    transition: opacity ease-in-out 0.25s;
+    
+                    .portfolio-hover-content {
+                      // Estilos para el contenido del hover
+                      font-size: 1.25rem;
+                      color: white;
+    
+                      .fa-3x {
+                        // Estilos para el ícono en hover
+                      }
+                    }
+                  }
+    
+                  img {
+                    // Estilos para la imagen del ítem
+                  }
+                }
+    
+                .portfolio-caption {
+                  // Estilos para el pie de cada ítem
+                  padding: 1.5rem;
+                  text-align: center;
+                  background-color: #121212;
+    
+                  .portfolio-caption-heading {
+                    // Estilos para el encabezado del pie
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    margin-bottom: 0;
+                  }
+    
+                  .portfolio-caption-subheading {
+                    // Estilos para el subtítulo del pie
+                    font-style: italic;
+                    color: #808080;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

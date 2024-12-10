@@ -1,0 +1,25 @@
+@use "mixin";
+
+// Footer
+.footer {
+    //padding: 1rem 0; // Ajusta el espaciado general del footer
+    text-align: center;
+    font-size: 0.9rem;
+  
+    .container {
+      .row {
+        // Fila principal del footer
+  
+        .col-lg-4 {
+          // Columnas del footer
+          &.my-3 {
+            // Estilo para la columna central con íconos sociales
+            .btn-social {
+              // Botones sociales
+              @include mixin.btn-social;
+            }
+          }
+        }
+      }
+    }
+  }
