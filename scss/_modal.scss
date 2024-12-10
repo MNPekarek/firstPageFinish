@@ -1,125 +1,206 @@
+@use "var";
+@use "mixin";
 
+.portfolio-modal.show {
+  display: block;
+}
 
 // General styles for modals
 .portfolio-modal {
-    &.modal {
-      // Estilos base para el modal
+  display: none;
+  position: fixed;   
+  padding: 1rem;
+  border-radius: 8px;
+  @include mixin.min-width-1200{
+    left: 4.5%;
+  }
+
+
+  
+  &.modal {
+    // Estilos base para el modal
+    transition: opacity 0.3s ease; // Transición al mostrar u ocultar el modal
+    opacity: 0;
+
+    &.show {
+      opacity: 1;
+      pointer-events: auto; // Permite interactividad solo si el modal está visible
     }
-  
-    .modal-dialog {
-      // Estilos para el diálogo del modal
-      transition: transform 0.3s ease-out;
-      transform: translate(0, -50px);
-      margin: 1rem;
-      max-width: 100vw;
-  
+  }
+
+  .modal-dialog {
+    // Estilos para el diálogo del modal
+    /*transition: transform 0.3s ease-out;
+    transform: translate(0, -50px);
+    margin: 1rem;
+    max-width: 100vw;
+    */
+    transition: transform 0.4s ease-in-out; // Transición más suave para el efecto de animación
+    //transform: translateY(-30px);
+    margin: 1rem;
+    max-width: 90%;
+  }
+
+  .modal-content {
+    // Estilos para el contenido del modal
+    padding-top: 2rem;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Sombra sutil para dar profundidad
+    border-radius: 8px; // Bordes redondeados
+    background-color: #ffffff;
+    ;
+
+    pointer-events: auto;
+  }
+
+  .close-modal {
+    // Estilos para el botón de cerrar el modal
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    background-color: #333;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background: #555; // Efecto hover para brindar interactividad
     }
-  
-    .modal-content {
-      // Estilos para el contenido del modal
-      padding-top: 6rem;
-      padding-bottom: 6rem;
-      text-align: center;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      pointer-events: auto;
+
+    img {
+      // Estilos para el ícono de cerrar
+      width: 60%;
+
     }
-  
-    .close-modal {
-      // Estilos para el botón de cerrar el modal
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      width: 3rem;
-      height: 3rem;
-      cursor: pointer;
-      background-color: transparent;
-  
-      img {
-        // Estilos para el ícono de cerrar
-        margin-bottom: 2rem;
-        vertical-align: middle;
-      }
-    }
-  
-    .container {
-  
-      // Estilos para el contenedor principal
-      .row {
-  
-        // Estilos para la fila
-        .col-lg-8 {
-          // Estilos para la columna que contiene el contenido del modal
-  
-          .modal-body {
-            // Estilos específicos para el cuerpo del modal
-            position: relative;
-            flex: 1 1 auto;
-  
-            h2 {
-              // Estilos para el título del proyecto
-              font-size: 3rem;
-              line-height: 3rem;
-            }
-  
-            .item-intro {
-              // Estilos para el texto introductorio
-              font-style: italic;
-              margin-bottom: 2rem;
-  
-            }
-  
-            img {
-              // Estilos para las imágenes dentro del modal
-              margin-bottom: 2rem;
-            }
-  
-            p {
-              // Estilos para los párrafos
-              margin-bottom: 2rem;
-              line-height: 1.75;
-            }
-  
-            ul {
-              // Estilos para la lista de detalles
-              margin-bottom: 2rem;
-              padding-left: 0;
+  }
+
+  .container {
+    width: 100%;
+
+    // Estilos para el contenedor principal
+    .row {
+
+      // Estilos para la fila
+      .col-lg-8 {
+        // Estilos para la columna que contiene el contenido del modal
+
+        .modal-body {
+          // Estilos específicos para el cuerpo del modal
+          //position: relative;
+          //flex: 1 1 auto;
+          padding: 1rem;
+
+          h2 {
+            // Estilos para el título del proyecto
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+          }
+
+          .item-intro {
+            // Estilos para el texto introductorio
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+
+          }
+
+          img {
+            // Estilos para las imágenes dentro del modal
+            margin: 1rem 0;
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+          }
+
+          p {
+            // Estilos para los párrafos
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            font-size: 1rem;
+          }
+
+          ul {
+            // Estilos para la lista de detalles
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            list-style-type: disc;
+
+            li {
+              // Estilos para cada ítem de la lista
+              font-size: 0.9rem;
+              margin-bottom: 0.5rem;
               list-style: none;
-              margin-top: 0;
-  
-              li {
-                // Estilos para cada ítem de la lista
-                display: list-item;
-                text-align: center;
-                unicode-bidi: isolate;
-  
-                strong {
-                  // Estilos para los títulos de los detalles
-                  font-weight: bolder;
-                }
+
+              strong {
+                // Estilos para los títulos de los detalles
+                font-weight: bolder;
               }
             }
-  
-            .btn {
-              // Estilos para el botón
-              padding: 1.25rem 2.5rem;
-              font-size: 1.125rem;
-              font-weight: 700;
-  
-              &.btn-primary {
-                // Estilos específicos para el botón primario
-              }
-  
-              i {
-                // Estilos para el ícono dentro del botón
-                overflow: visible;
-                box-sizing: content-box;
-              }
+          }
+
+          .btn {
+            // Estilos para el botón
+            margin: 1rem 0;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            color: #fff;
+            background: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+
+            &:hover {
+              background-color: #555;
+            }
+
+            &.btn-primary {
+              // Estilos específicos para el botón primario
+            }
+
+            i {
+              // Estilos para el ícono dentro del botón
+              overflow: visible;
+              box-sizing: content-box;
             }
           }
         }
       }
     }
   }
+}
+
+body.night-mode{
+  .portfolio-modal{
+    .modal-content{
+      background-color: #333;
+    }
+    .container{
+      .row{
+        .col-lg-8{
+          .modal-body{
+            p{
+              color: var.$color-muted-dark;
+            }  
+            .btn{
+              background-color: #555;
+              &:hover{
+                background-color: black;
+              }
+            }          
+          }          
+        }
+      }
+    }
+
+  }
+}

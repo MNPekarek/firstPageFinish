@@ -54,33 +54,57 @@ document.addEventListener('DOMContentLoaded', function () {
 //night mode
 document.addEventListener("DOMContentLoaded", () => {
     const themeToggle = document.getElementById("theme-toggle");
-  
+
     // Consulta de tema: aplica el modo oscuro según la preferencia del sistema
     if (!localStorage.getItem("theme")) {
-      const prefersNight = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      if (prefersNight) {
-        document.body.classList.add("night-mode");
-        themeToggle.textContent = "☀️ Light Mode";
-      }
+        const prefersNight = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (prefersNight) {
+            document.body.classList.add("night-mode");
+            themeToggle.textContent = "☀️ Light Mode";
+        }
     } else {
-      // Aplica el tema guardado en localStorage
-      const currentTheme = localStorage.getItem("theme");
-      if (currentTheme === "night") {
-        document.body.classList.add("night-mode");
-        themeToggle.textContent = "☀️ Light Mode";
-      }
+        // Aplica el tema guardado en localStorage
+        const currentTheme = localStorage.getItem("theme");
+        if (currentTheme === "night") {
+            document.body.classList.add("night-mode");
+            themeToggle.textContent = "☀️ Light Mode";
+        }
     }
-  
+
     // Escucha el cambio de tema
     themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("night-mode");
-      const isNightMode = document.body.classList.contains("night-mode");
+        document.body.classList.toggle("night-mode");
+        const isNightMode = document.body.classList.contains("night-mode");
+
+        // Cambia texto del botón
+        themeToggle.textContent = isNightMode ? "☀️ Light Mode" : "🌙 Night Mode";
+
+        // Guarda la preferencia
+        localStorage.setItem("theme", isNightMode ? "night" : "light");
+    });
+});
+
+// Manejar el cierre de todos los modales
+document.addEventListener('DOMContentLoaded', function () {
+    const modals = document.querySelectorAll('.portfolio-modal');
   
-      // Cambia texto del botón
-      themeToggle.textContent = isNightMode ? "☀️ Light Mode" : "🌙 Night Mode";
+    modals.forEach(modal => {
+      const closeModal = modal.querySelector('.close-modal');
   
-      // Guarda la preferencia
-      localStorage.setItem("theme", isNightMode ? "night" : "light");
+      // Cerrar el modal al hacer clic en el botón de cierre
+      if (closeModal) {
+        closeModal.addEventListener('click', (e) => {
+          e.stopPropagation();
+          modal.classList.remove('show');
+        });
+      }
+  
+      // Cerrar el modal si se hace clic fuera de la zona activa
+      window.addEventListener('click', (e) => {
+        if (modal.classList.contains('show') && !modal.querySelector('.modal-dialog').contains(e.target)) {
+          modal.classList.remove('show');
+        }
+      });
     });
   });
   
