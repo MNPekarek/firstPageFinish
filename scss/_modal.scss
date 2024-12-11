@@ -5,6 +5,17 @@
   display: block;
 }
 
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
 // General styles for modals
 .portfolio-modal {
   display: none;
@@ -21,6 +32,7 @@
     // Estilos base para el modal
     transition: opacity 0.3s ease; // Transición al mostrar u ocultar el modal
     opacity: 0;
+    animation: fadeIn 0.3s ease-in-out;
 
     &.show {
       opacity: 1;
@@ -39,6 +51,7 @@
     //transform: translateY(-30px);
     margin: 1rem;
     max-width: 90%;
+    //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Sombra sutil para dar profundidad
   }
 
   .modal-content {
@@ -194,7 +207,8 @@ body.night-mode{
             .btn{
               background-color: #555;
               &:hover{
-                background-color: black;
+                background-color: #444;
+                color: #fff;
               }
             }          
           }          

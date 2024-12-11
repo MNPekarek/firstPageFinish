@@ -1,5 +1,125 @@
 @use "mixin";
 
+
+// Variables de color y tipografía
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$error-color: #dc3545;
+$bg-color: #f8f9fa;
+$input-border-color: #ced4da;
+$input-focus-border-color: $primary-color;
+$invalid-feedback-color: $error-color;
+
+// Estilos generales del formulario
+#contact {
+  background-color: rgb(33, 37, 41);
+  background-image: url(../assets/img/map-image.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  .container {
+    //max-width: 900px;
+  }
+
+  .section-heading {
+    color: rgb(255, 255, 255);
+    @include mixin.title;
+  }
+
+  .section-subheading {
+    @include mixin.subtitles;
+    color: rgb(108, 117, 125) !important;
+  }
+}
+
+// Estilo de los campos del formulario
+form {
+  .form-group {
+    margin-bottom: 1.5rem;
+
+    input {
+      padding: 1.25rem;
+      .form-control {
+        height: auto;
+      }
+    }
+
+    textarea {
+      font-size: 1rem;
+      padding: 1rem;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid $input-border-color;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: $input-focus-border-color;
+        outline: none;
+      }
+
+      &.is-invalid {
+        border-color: $invalid-feedback-color;
+      }
+    }
+
+    textarea {
+      height: 100%;
+      min-height: 15rem;
+    }
+  }
+
+  // Mensajes de error
+  .invalid-feedback {
+    display: none;
+    font-size: 0.875rem;
+    color: $invalid-feedback-color;
+  }
+
+  // Mostrar los mensajes de error cuando sea necesario
+  input.is-invalid~.invalid-feedback,
+  textarea.is-invalid~.invalid-feedback {
+    display: block;
+  }
+}
+
+// Estilo para el botón de enviar
+#submitButton {
+  @include mixin.btn-xl();
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #d75b89;
+    transform: scale(1.05);
+  }
+
+  &:disabled {
+    background-color: $secondary-color;
+    cursor: not-allowed;
+  }
+}
+
+// Estilo para mensajes de éxito o error
+#submitSuccessMessage,
+#submitErrorMessage {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#submitSuccessMessage {
+  background-color: $success-color;
+  color: white;
+}
+
+#submitErrorMessage {
+  background-color: $error-color;
+  color: white;
+}
+
+/*
 // Sección de contacto
 #contact {
     background-color: rgb(33, 37, 41);
@@ -78,3 +198,5 @@
       }
     }
   }
+
+  */

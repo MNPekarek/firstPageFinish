@@ -683,36 +683,59 @@ body.night-mode .page-section#team .container .row:last-of-type .col-lg-8.mx-aut
   background-repeat: no-repeat;
   background-position: center center;
 }
-#contact .container .text-center .section-heading {
+#contact .section-heading {
   color: rgb(255, 255, 255);
   font-size: 2.5rem;
   margin-top: 0px;
   margin-bottom: 1rem;
 }
-#contact .container .text-center .section-subheading {
+#contact .section-subheading {
   font-size: 1rem;
   font-weight: 400;
   font-style: italic;
   margin-bottom: 4rem;
   color: rgb(108, 117, 125) !important;
 }
-#contact .container form#contactForm .row .col-md-6 .form-group {
+
+form .form-group {
   margin-bottom: 1.5rem;
 }
-#contact .container form#contactForm .row .col-md-6 .form-group input {
+form .form-group input {
   padding: 1.25rem;
 }
-#contact .container form#contactForm .row .col-md-6 .form-group .form-control {
+form .form-group input .form-control {
   height: auto;
 }
-#contact .container form#contactForm .row .col-md-6 .form-group-textarea {
-  padding: 1.25rem;
+form .form-group textarea {
+  font-size: 1rem;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s ease;
 }
-#contact .container form#contactForm .row .col-md-6 .form-group-textarea textarea {
+form .form-group textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+form .form-group textarea.is-invalid {
+  border-color: #dc3545;
+}
+form .form-group textarea {
   height: 100%;
-  min-height: 10rem;
+  min-height: 15rem;
 }
-#contact .container form#contactForm .text-center .btn-xl {
+form .invalid-feedback {
+  display: none;
+  font-size: 0.875rem;
+  color: #dc3545;
+}
+form input.is-invalid ~ .invalid-feedback,
+form textarea.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+#submitButton {
   padding: 1.25rem 2.25rem;
   font-size: 1.125rem;
   background-color: #ff526f;
@@ -726,8 +749,10 @@ body.night-mode .page-section#team .container .row:last-of-type .col-lg-8.mx-aut
   /* Bordes redondeados */
   text-transform: uppercase;
   transition: all 0.3s ease;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
-#contact .container form#contactForm .text-center .btn-xl:hover {
+#submitButton:hover {
   background-color: #ff3d5c;
   /* Color de fondo al pasar el mouse */
   border-color: #ff3d5c;
@@ -735,7 +760,114 @@ body.night-mode .page-section#team .container .row:last-of-type .col-lg-8.mx-aut
   color: #fff;
   /* Asegura que el texto sea visible */
 }
+#submitButton:hover {
+  background-color: #d75b89;
+  transform: scale(1.05);
+}
+#submitButton:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
 
+#submitSuccessMessage,
+#submitErrorMessage {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#submitSuccessMessage {
+  background-color: #28a745;
+  color: white;
+}
+
+#submitErrorMessage {
+  background-color: #dc3545;
+  color: white;
+}
+
+/*
+// Sección de contacto
+#contact {
+    background-color: rgb(33, 37, 41);
+    background-image: url(../assets/img/map-image.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    .container {
+
+      // Contenedor principal de la sección
+      .text-center {
+
+        // Encabezado de la sección
+        .section-heading {
+          // Título principal
+          color: rgb(255, 255, 255);
+          @include mixin.title; 
+        }
+
+        .section-subheading {
+          // Subtítulo
+          @include mixin.subtitles; 
+          color: rgb(108, 117, 125) !important;
+
+        }
+      }
+
+      // Formulario de contacto
+      form#contactForm {
+        .row {
+
+          // Fila principal del formulario
+          .col-md-6 {
+
+            // Columnas del formulario
+            .form-group {
+              // Agrupación de cada campo de formulario
+              margin-bottom: 1.5rem;
+
+              input {
+                padding: 1.25rem;
+              }
+
+              .form-control {
+                height: auto;
+              }
+            }
+
+            .form-group-textarea {
+              // Campo de mensaje
+              padding: 1.25rem;
+
+              textarea {
+                height: 100%;
+                min-height: 10rem;
+              }
+            }
+          }
+        }
+
+        // Mensajes de éxito y error
+        #submitSuccessMessage {
+          // Estilos para el mensaje de éxito
+        }
+
+        #submitErrorMessage {
+          // Estilos para el mensaje de error
+        }
+
+        // Botón de envío
+        .text-center {
+          .btn-xl {          
+            @include mixin.btn-xl();         
+          }
+        }
+      }
+    }
+  }
+
+  */
 .footer {
   text-align: center;
   font-size: 0.9rem;
@@ -754,6 +886,16 @@ body.night-mode .page-section#team .container .row:last-of-type .col-lg-8.mx-aut
   display: block;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .portfolio-modal {
   display: none;
   position: fixed;
@@ -768,6 +910,7 @@ body.night-mode .page-section#team .container .row:last-of-type .col-lg-8.mx-aut
 .portfolio-modal.modal {
   transition: opacity 0.3s ease;
   opacity: 0;
+  animation: fadeIn 0.3s ease-in-out;
 }
 .portfolio-modal.modal.show {
   opacity: 1;
@@ -882,7 +1025,8 @@ body.night-mode .portfolio-modal .container .row .col-lg-8 .modal-body .btn {
   background-color: #555;
 }
 body.night-mode .portfolio-modal .container .row .col-lg-8 .modal-body .btn:hover {
-  background-color: black;
+  background-color: #444;
+  color: #fff;
 }
 
 *,

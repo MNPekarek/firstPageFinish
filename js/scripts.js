@@ -107,5 +107,119 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   });
+
+//guardar opcion de night mode
+  const toggleNightMode = () => {
+    document.body.classList.toggle('night-mode');
+    localStorage.setItem('nightMode', document.body.classList.contains('night-mode'));
+};
+
+// Al cargar la página
+if (localStorage.getItem('nightMode') === 'true') {
+    document.body.classList.add('night-mode');
+}
+
+//scroll suave entre secciones
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
   
 
+// Obtener referencias al formulario y botón
+const form = document.getElementById('contactForm');
+const submitButton = document.getElementById('submitButton');
+
+// Validación del formulario
+form.addEventListener('submit', function (e) {
+    e.preventDefault(); // Evita el envío predeterminado
+    let isValid = true;
+
+    // Validar nombre
+    const name = document.getElementById('name');
+    if (name.value.trim() === '') {
+        isValid = false;
+        name.classList.add('is-invalid');
+    } else {
+        name.classList.remove('is-invalid');
+    }
+
+    // Validar email
+    const email = document.getElementById('email');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.value)) {
+        isValid = false;
+        email.classList.add('is-invalid');
+    } else {
+        email.classList.remove('is-invalid');
+    }
+
+    // Validar teléfono
+    const phone = document.getElementById('phone');
+    if (phone.value.trim() === '') {
+        isValid = false;
+        phone.classList.add('is-invalid');
+    } else {
+        phone.classList.remove('is-invalid');
+    }
+
+    // Validar mensaje
+    const message = document.getElementById('message');
+    if (message.value.trim() === '') {
+        isValid = false;
+        message.classList.add('is-invalid');
+    } else {
+        message.classList.remove('is-invalid');
+    }
+
+    // Si es válido, envía el formulario
+    if (isValid) {
+        sendFormData();
+    }
+});
+
+// Verificar todos los campos y habilitar el botón
+form.addEventListener('input', () => {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const isFormValid = name && email && phone && message && emailRegex.test(email);
+
+    submitButton.disabled = !isFormValid;  // Deshabilita el botón si el formulario no es válido
+});
+
+// Envío del formulario con fetch
+function sendFormData() {
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json',
+        },
+    })
+        .then(response => {
+            if (response.ok) {
+                document.getElementById('submitSuccessMessage').classList.remove('d-none');
+                document.getElementById('submitErrorMessage').classList.add('d-none');
+                form.reset();
+                submitButton.disabled = true; // Deshabilitar el botón tras el envío
+                submitButton.innerText = 'Message Sent'; // Cambiar el texto del botón
+            } else {
+                document.getElementById('submitErrorMessage').classList.remove('d-none');
+                document.getElementById('submitSuccessMessage').classList.add('d-none');
+            }
+        })
+        .catch(() => {
+            document.getElementById('submitErrorMessage').classList.remove('d-none');
+            document.getElementById('submitSuccessMessage').classList.add('d-none');
+        });
+}
