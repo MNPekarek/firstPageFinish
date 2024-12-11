@@ -1,17 +1,25 @@
-
-
-
 //background text nav
 $colortext1: #ff7eb3;
 $colortext2: #ff526f;
 $colortext3: #ff616d;
 $colortext4: #ff7eb3;
 
+//header
+$color-header: #ffffff;
 //color de botones xl
 $colorbtn: #ff526f;
 
 //color de botones xl hover
 $colorbtn-hover: #ff3d5c;
+
+//color contact
+$success-color: #28a745;
+$error-color: #dc3545;
+$input-border-color: #ced4da;
+$input-focus-border-color: $colortext2;
+$invalid-feedback-color: $error-color;
+//$secondary-color: #6c757d;
+//$bg-color: #f8f9fa;
 
 
 $bg-light: #ffffff;
@@ -23,4 +31,15 @@ $line-color-dark: #666666;
 
 $color-muted: rgba(108, 117, 125, 0.75); // Gris tenue
 $color-muted-dark: rgba(255, 255, 255, 0.6); //Gris tenue en modo oscuro
+
+//footer
+$color-link: #000000;
+$bg-btnSocial-night-mode: #808080;
+$color-link-night-mode: #c0bcbc;
+
+//modal
+$bg-modal:#ffffff;
+$bg-btn-close:#333;
+$bg-btn-close-hover:#555;
+$bg-modal-night-mode:#333
 

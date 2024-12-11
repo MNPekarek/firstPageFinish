@@ -243,7 +243,7 @@
           color: var.$text-dark;
         }
         .section-subheading {
-          color: var.$text-muted-dark;
+          color: var.$color-muted-dark;
         }
       }
     }
@@ -258,9 +258,7 @@
         border-color: var.$line-color-dark; // Color del borde de las imágenes
       }
   
-      .timeline-panel {
-        color: var.$text-dark;
-  
+      .timeline-panel {  
         .timeline-heading h4 {
           color: var.$text-dark;
         }
@@ -269,11 +267,6 @@
           color: var.$text-muted-dark;
         }
       }
-    }
-  
-    .timeline-inverted .timeline-panel {
-      // No es necesario duplicar estilos de estructura
-      color: var.$text-dark;
     }
   }
   

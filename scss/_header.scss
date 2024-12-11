@@ -1,10 +1,11 @@
 @use "mixin";
+@use "var";
 
 header.masthead {
     padding-top: 10.5rem;
     padding-bottom: 6rem;
     text-align: center;
-    color: #fff;
+    color: var.$color-header;
     background-image: url("../assets/img/header/geike-verniers-fBsFqwmwhgg-unsplash.jpg");
     background-repeat: no-repeat;
     background-attachment: scroll;

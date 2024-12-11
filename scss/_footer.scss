@@ -9,8 +9,7 @@
   
     .container {
       .row {
-        // Fila principal del footer
-  
+        // Fila principal del footer  
         .col-lg-4 {
           // Columnas del footer
           &.my-3 {
@@ -21,7 +20,7 @@
             }
           }
           .link{
-            color: black;
+            color: var.$color-link;
           }
         }
       }
@@ -37,11 +36,11 @@
               .btn-social{
               }    
               a{
-                background-color: gray;
+                background-color: var.$bg-btnSocial-night-mode;
               }         
             }
             .link{
-              color: rgb(192, 188, 188);
+              color: var.$color-link-night-mode;
             } 
           }
         }

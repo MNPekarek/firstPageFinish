@@ -60,14 +60,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const prefersNight = window.matchMedia("(prefers-color-scheme: dark)").matches;
         if (prefersNight) {
             document.body.classList.add("night-mode");
-            themeToggle.textContent = "☀️ Light Mode";
+            themeToggle.textContent = "☀️";
         }
     } else {
         // Aplica el tema guardado en localStorage
         const currentTheme = localStorage.getItem("theme");
         if (currentTheme === "night") {
             document.body.classList.add("night-mode");
-            themeToggle.textContent = "☀️ Light Mode";
+            themeToggle.textContent = "☀️";
         }
     }
 
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const isNightMode = document.body.classList.contains("night-mode");
 
         // Cambia texto del botón
-        themeToggle.textContent = isNightMode ? "☀️ Light Mode" : "🌙 Night Mode";
+        themeToggle.textContent = isNightMode ? "☀️" : "🌙";
 
         // Guarda la preferencia
         localStorage.setItem("theme", isNightMode ? "night" : "light");
