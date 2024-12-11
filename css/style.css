@@ -694,7 +694,7 @@ body.night-mode .page-section#team .container .row:last-of-type .col-lg-8.mx-aut
   font-weight: 400;
   font-style: italic;
   margin-bottom: 4rem;
-  color: rgb(108, 117, 125) !important;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 form .form-group {
@@ -880,6 +880,16 @@ form textarea.is-invalid ~ .invalid-feedback {
   justify-content: center;
   padding: 0px;
   border-radius: 100%;
+}
+.footer .container .row .col-lg-4 .link {
+  color: black;
+}
+
+body.night-mode .footer .container .row .col-lg-4.my-3 a {
+  background-color: gray;
+}
+body.night-mode .footer .container .row .col-lg-4 .link {
+  color: rgb(192, 188, 188);
 }
 
 .portfolio-modal.show {

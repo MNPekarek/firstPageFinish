@@ -1,4 +1,5 @@
 @use "mixin";
+@use "var";
 
 
 // Variables de color y tipografía
@@ -29,7 +30,7 @@ $invalid-feedback-color: $error-color;
 
   .section-subheading {
     @include mixin.subtitles;
-    color: rgb(108, 117, 125) !important;
+    color: var.$color-muted-dark;
   }
 }
 

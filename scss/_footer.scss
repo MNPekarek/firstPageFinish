@@ -1,4 +1,5 @@
 @use "mixin";
+@use "var";
 
 // Footer
 .footer {
@@ -18,6 +19,30 @@
               // Botones sociales
               @include mixin.btn-social;
             }
+          }
+          .link{
+            color: black;
+          }
+        }
+      }
+    }
+  }
+
+  body.night-mode{
+    .footer{
+      .container{
+        .row{
+          .col-lg-4{
+            &.my-3 {
+              .btn-social{
+              }    
+              a{
+                background-color: gray;
+              }         
+            }
+            .link{
+              color: rgb(192, 188, 188);
+            } 
           }
         }
       }
