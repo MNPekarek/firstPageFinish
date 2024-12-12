@@ -223,3 +223,35 @@ function sendFormData() {
             document.getElementById('submitSuccessMessage').classList.add('d-none');
         });
 }
+
+
+// JavaScript para la interacción del portafolio
+
+// Filtros por categoría
+document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            const category = item.parentElement.getAttribute('data-category');
+            if (filter === 'all' || category === filter) {
+                item.parentElement.style.display = 'block';
+            } else {
+                item.parentElement.style.display = 'none';
+            }
+        });
+    });
+});
+
+// Búsqueda interactiva
+document.getElementById('searchBar').addEventListener('input', (event) => {
+    const searchQuery = event.target.value.toLowerCase();
+    document.querySelectorAll('.portfolio-item').forEach(item => {
+        const heading = item.querySelector('.portfolio-caption-heading').textContent.toLowerCase();
+        const subheading = item.querySelector('.portfolio-caption-subheading').textContent.toLowerCase();
+        if (heading.includes(searchQuery) || subheading.includes(searchQuery)) {
+            item.parentElement.style.display = 'block';
+        } else {
+            item.parentElement.style.display = 'none';
+        }
+    });
+});

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <head>
@@ -24,8 +25,8 @@
             <div class="container">
                 <a class="navbar-brand" href="#page-top"><img src="./assets/img/navbar-logo1.png" alt="logo" /></a>
                 <button id="theme-toggle" class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">🌙</button>
+                    data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">🌙</button>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -59,7 +60,8 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Services</h2>
-                    <h3 class="section-subheading">Digital solutions designed to boost your business and protect your online presence.</h3>
+                    <h3 class="section-subheading">Digital solutions designed to boost your business and protect your
+                        online presence.</h3>
                 </div>
                 <div class="row text-center">
                     <div class="col-md-4">
@@ -68,7 +70,9 @@
                             <i class="fas fa-shopping-cart fa-stack-1x fa-inverse bg"></i>
                         </span>
                         <h4 class="my-3">E-Commerce</h4>
-                        <p>We enhance your business with personalized e-commerce solutions. We create intuitive, fast and secure online stores, designed to maximize your sales and improve the customer experience.</p>
+                        <p>We enhance your business with personalized e-commerce solutions. We create intuitive, fast
+                            and secure online stores, designed to maximize your sales and improve the customer
+                            experience.</p>
                     </div>
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
@@ -86,27 +90,43 @@
                             <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
                         </span>
                         <h4 class="my-3">Web Security</h4>
-                        <p>Our responsive designs ensure your website looks perfect on any device. We optimize every detail to provide a smooth and engaging experience on both mobile and desktop.</p>
+                        <p>Our responsive designs ensure your website looks perfect on any device. We optimize every
+                            detail to provide a smooth and engaging experience on both mobile and desktop.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Portfolio Grid-->
+        <!-- Portfolio Section -->
         <section class="page-section" id="portfolio">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Portfolio</h2>
                     <h3 class="section-subheading">Browse through our curated collection of stunning images.</h3>
                 </div>
+
+                <!-- Filters -->
+                <div class="text-center mb-4">
+                    <button class="btn btn-outline-primary filter-btn" data-filter="all">All</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="Illustration">Illustration</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="Graphic Design">Graphic
+                        Design</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="Photography">Photography</button>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="text-center mb-4">
+                    <input type="text" id="searchBar" class="form-control" placeholder="Search portfolio...">
+                </div>
+
                 <div class="row">
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 1-->
+                    <!-- Portfolio Items -->
+                    <div class="col-lg-4 col-sm-6 mb-4" data-category="Illustration" data-aos="fade-up">
                         <div class="portfolio-item">
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="..." />
+                                <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="Threads" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Threads</div>
@@ -114,14 +134,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 2-->
+
+                    <div class="col-lg-4 col-sm-6 mb-4" data-category="Graphic Design" data-aos="fade-up">
                         <div class="portfolio-item">
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/2.jpg" alt="..." />
+                                <img class="img-fluid" src="assets/img/portfolio/2.jpg" alt="Explore" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Explore</div>
@@ -129,29 +149,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 3-->
+
+                    <div class="col-lg-4 col-sm-6 mb-4" data-category="Photography" data-aos="fade-up">
                         <div class="portfolio-item">
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/3.jpg" alt="..." />
+                                <img class="img-fluid" src="assets/img/portfolio/3.jpg" alt="Window" />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Finish</div>
-                                <div class="portfolio-caption-subheading">Identity</div>
+                                <div class="portfolio-caption-heading">Window</div>
+                                <div class="portfolio-caption-subheading">Photography</div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                        <!-- Portfolio item 4-->
+                    <div class="col-lg-4 col-sm-6 mb-4" data-category="Photography" data-aos="fade-up">
                         <div class="portfolio-item">
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/4.jpg" alt="..." />
+                                <img class="img-fluid" src="assets/img/portfolio/4.jpg" alt="Window" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Lines</div>
@@ -159,14 +178,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                        <!-- Portfolio item 5-->
+                    <div class="col-lg-4 col-sm-6 mb-4" data-category="Photography" data-aos="fade-up">
                         <div class="portfolio-item">
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/5.jpg" alt="..." />
+                                <img class="img-fluid" src="assets/img/portfolio/5.jpg" alt="Window" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Southwest</div>
@@ -174,14 +192,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <!-- Portfolio item 6-->
+                    <div class="col-lg-4 col-sm-6 mb-4" data-category="Photography" data-aos="fade-up">
                         <div class="portfolio-item">
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/6.jpg" alt="..." />
+                                <img class="img-fluid" src="assets/img/portfolio/6.jpg" alt="Window" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Window</div>
@@ -210,7 +227,9 @@
                                 <h4 class="subheading">Our Humble Beginnings</h4>
                             </div>
                             <div class="timeline-body">
-                                <p>In our early days, we started as a small team of passionate innovators working from a modest office. Driven by creativity and determination, we focused on delivering impactful solutions for our first clients.</p>
+                                <p>In our early days, we started as a small team of passionate innovators working from a
+                                    modest office. Driven by creativity and determination, we focused on delivering
+                                    impactful solutions for our first clients.</p>
                             </div>
                         </div>
                     </li>
@@ -223,7 +242,9 @@
                                 <h4 class="subheading">An Agency is Born</h4>
                             </div>
                             <div class="timeline-body">
-                                <p>With growing demand for our services, we officially launched our agency, expanding our team and offering specialized services. This marked the beginning of our journey to establish long-term partnerships with clients worldwide.</p>
+                                <p>With growing demand for our services, we officially launched our agency, expanding
+                                    our team and offering specialized services. This marked the beginning of our journey
+                                    to establish long-term partnerships with clients worldwide.</p>
                             </div>
                         </div>
                     </li>
@@ -236,7 +257,9 @@
                                 <h4 class="subheading">Transition to Full Service</h4>
                             </div>
                             <div class="timeline-body">
-                                <p>LBy 2015, we transformed into a full-service digital agency, offering comprehensive solutions in web development, design, and marketing. This transition enabled us to tackle larger, more ambitious projects.</p>
+                                <p>LBy 2015, we transformed into a full-service digital agency, offering comprehensive
+                                    solutions in web development, design, and marketing. This transition enabled us to
+                                    tackle larger, more ambitious projects.</p>
                             </div>
                         </div>
                     </li>
@@ -249,7 +272,9 @@
                                 <h4 class="subheading">Phase Two Expansion</h4>
                             </div>
                             <div class="timeline-body">
-                                <p>Amid a rapidly changing industry, we expanded our services to include e-commerce platforms and advanced security solutions. This phase strengthened our position as a leader in the digital space.</p>
+                                <p>Amid a rapidly changing industry, we expanded our services to include e-commerce
+                                    platforms and advanced security solutions. This phase strengthened our position as a
+                                    leader in the digital space.</p>
                             </div>
                         </div>
                     </li>
@@ -272,7 +297,8 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-                    <h3 class="section-subheading">Meet the talented individuals driving our success and innovation.</h3>
+                    <h3 class="section-subheading">Meet the talented individuals driving our success and innovation.
+                    </h3>
                 </div>
                 <div class="row">
                     <div class="col-lg-4">
@@ -317,7 +343,9 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-8 mx-auto text-center">
-                        <p class="large">Our dedicated team combines creativity, expertise, and passion to deliver outstanding results. Each member brings unique skills to ensure the success of every project.</p>
+                        <p class="large">Our dedicated team combines creativity, expertise, and passion to deliver
+                            outstanding results. Each member brings unique skills to ensure the success of every
+                            project.</p>
                     </div>
                 </div>
             </div>
@@ -646,6 +674,10 @@
         <script src="./js/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
         <!--<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>-->
 
     </body>
