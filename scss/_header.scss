@@ -20,12 +20,14 @@ header.masthead {
     .container {
   
       .masthead-subheading {
+        font-family: "Agu Display",serif;
         font-size: 1.5rem;
         font-style: italic;
         line-height: 1.5rem;
         margin-bottom: 25px;
   
         @include mixin.min-width-768 {
+          
           font-size: 2.25rem;
           font-style: italic;
           line-height: 2.25rem;
@@ -39,6 +41,7 @@ header.masthead {
         font-weight: 700;
         line-height: 3.25rem;
         margin-bottom: 2rem;
+        
   
         @include mixin.min-width-768 {
           font-size: 4.5rem;

@@ -18,12 +18,35 @@
           h2 {
             // Estilos para el título de la sección
             @include mixin.title; 
+            font-family: "Agu Display",serif;
           }
   
           h3 {
             // Estilos para el subtítulo de la sección
             @include mixin.subtitles; 
             color: var.$color-muted;  
+          }
+        }
+
+        //estilo filters
+        .text-center{
+          button{
+            border: #2e2c2c;
+            color: #121212;
+            background-color: #f4f0f0;
+            &:hover{
+              background-color: var.$colortext2;
+            }
+          }
+        }
+
+        .text-center{
+          input{
+            background-color: #f4f0f0;
+            &:active{
+              border-color: red;
+              
+            }
           }
         }
   

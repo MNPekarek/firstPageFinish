@@ -17,6 +17,7 @@
           .section-heading {
             // Personalizar título principal
             @include mixin.title; 
+            font-family: "Agu Display",serif;
           }
   
           .section-subheading {

@@ -55,6 +55,11 @@
     transition: height 0.3s ease-in-out;
   }
 }
+.navbar .container button {
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+}
 .navbar .container .navbar-toggler {
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -120,6 +125,7 @@ header.masthead {
   }
 }
 header.masthead .container .masthead-subheading {
+  font-family: "Agu Display", serif;
   font-size: 1.5rem;
   font-style: italic;
   line-height: 1.5rem;
@@ -183,6 +189,7 @@ header.masthead .container .btn-xl:hover {
   font-size: 2.5rem;
   margin-top: 0px;
   margin-bottom: 1rem;
+  font-family: "Agu Display", serif;
 }
 #services.page-section .container .text-center .section-subheading {
   font-size: 1rem;
@@ -243,6 +250,7 @@ body.night-mode #services.page-section .container .row p {
   font-size: 2.5rem;
   margin-top: 0px;
   margin-bottom: 1rem;
+  font-family: "Agu Display", serif;
 }
 .page-section#portfolio .container .text-center h3 {
   font-size: 1rem;
@@ -250,6 +258,20 @@ body.night-mode #services.page-section .container .row p {
   font-style: italic;
   margin-bottom: 4rem;
   color: rgba(108, 117, 125, 0.75);
+}
+.page-section#portfolio .container .text-center button {
+  border: #2e2c2c;
+  color: #121212;
+  background-color: #f4f0f0;
+}
+.page-section#portfolio .container .text-center button:hover {
+  background-color: #ff526f;
+}
+.page-section#portfolio .container .text-center input {
+  background-color: #f4f0f0;
+}
+.page-section#portfolio .container .text-center input:active {
+  border-color: red;
 }
 .page-section#portfolio .container .row .col-lg-4 .portfolio-item,
 .page-section#portfolio .container .row .col-sm-6 .portfolio-item {
@@ -366,6 +388,7 @@ body.night-mode .page-section#portfolio .container .row .col-sm-6 .portfolio-ite
   font-size: 2.5rem;
   margin-top: 0px;
   margin-bottom: 1rem;
+  font-family: "Agu Display", serif;
 }
 .page-section#about .container .text-center .section-subheading {
   font-size: 1rem;
@@ -582,6 +605,7 @@ body.night-mode .timeline .timeline-panel .timeline-body p {
   font-size: 2.5rem;
   margin-top: 0px;
   margin-bottom: 1rem;
+  font-family: "Agu Display", serif;
 }
 .page-section#team .container .text-center .section-subheading {
   font-size: 1rem;
@@ -682,6 +706,7 @@ body.night-mode .page-section#team .container .row:last-of-type .col-lg-8.mx-aut
   font-size: 2.5rem;
   margin-top: 0px;
   margin-bottom: 1rem;
+  font-family: "Agu Display", serif;
 }
 #contact .section-subheading {
   font-size: 1rem;
@@ -957,6 +982,7 @@ body {
   background-color: #ffffff;
   color: #000000;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 body.night-mode {

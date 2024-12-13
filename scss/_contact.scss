@@ -15,6 +15,7 @@
   .section-heading {
     color: var.$text-dark;
     @include mixin.title;
+    font-family: "Agu Display",serif;
   }
 
   .section-subheading {

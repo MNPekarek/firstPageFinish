@@ -17,7 +17,8 @@
   
   
           .section-heading {
-            @include mixin.title;          
+            @include mixin.title;   
+            font-family: "Agu Display",serif;       
           }
   
           .section-subheading {
