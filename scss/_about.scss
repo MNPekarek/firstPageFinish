@@ -8,6 +8,7 @@
   
     &#about {
       // Personalizar contenedor
+      background-color: #fff;
   
       .container {      
         .text-center {
@@ -139,6 +140,11 @@
         width: 100%;
         text-align: left;
         padding: 0px 20px 0px 100px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        &:hover{
+          transform: scale(1.05); //aumenta ligeramente el tamaño
+          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
   
         @include mixin.min-width-768 {
           float: left;

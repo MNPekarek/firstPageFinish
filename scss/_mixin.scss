@@ -9,21 +9,19 @@
   /* Fondo principal */
   color: #fff;
   /* Color de texto */
-  border: 2px solid var.$colorbtn;
+  border: none;
   /* Borde del botón */
   font-weight: bold;
   border-radius: 5px;
   /* Bordes redondeados */
   text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 
   &:hover {
     background-color: var.$colorbtn-hover;
     /* Color de fondo al pasar el mouse */
-    border-color: var.$colorbtn-hover;
-    /* Cambio en el borde */
-    color: #fff;
-    /* Asegura que el texto sea visible */
+    transform: scale(1.05);
   }
 }
 

@@ -3,8 +3,10 @@
 
 // Estilos para la sección "Services"
 #services {
+  
     &.page-section {
       padding: 6rem 0px;
+      background-color: #fff;
   
       @include mixin.min-width-768 {
         padding: 9rem 0px;

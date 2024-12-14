@@ -160,25 +160,24 @@ header.masthead .container .btn-xl {
   /* Fondo principal */
   color: #fff;
   /* Color de texto */
-  border: 2px solid #ff526f;
+  border: none;
   /* Borde del botón */
   font-weight: bold;
   border-radius: 5px;
   /* Bordes redondeados */
   text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 header.masthead .container .btn-xl:hover {
   background-color: #ff3d5c;
   /* Color de fondo al pasar el mouse */
-  border-color: #ff3d5c;
-  /* Cambio en el borde */
-  color: #fff;
-  /* Asegura que el texto sea visible */
+  transform: scale(1.05);
 }
 
 #services.page-section {
   padding: 6rem 0px;
+  background-color: #fff;
 }
 @media (min-width: 768px) {
   #services.page-section {
@@ -245,6 +244,7 @@ body.night-mode #services.page-section .container .row p {
 .page-section {
   padding: 6rem 0px;
   background-color: #f8f9fa;
+  transition: background-color 0.3s ease;
 }
 .page-section#portfolio .container .text-center h2 {
   font-size: 2.5rem;
@@ -278,6 +278,15 @@ body.night-mode #services.page-section .container .row p {
   max-width: 26rem;
   margin-left: auto;
   margin-right: auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.page-section#portfolio .container .row .col-lg-4 .portfolio-item:hover,
+.page-section#portfolio .container .row .col-sm-6 .portfolio-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 .page-section#portfolio .container .row .col-lg-4 .portfolio-item .portfolio-link,
 .page-section#portfolio .container .row .col-sm-6 .portfolio-item .portfolio-link {
@@ -302,6 +311,10 @@ body.night-mode #services.page-section .container .row p {
 .page-section#portfolio .container .row .col-sm-6 .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
   font-size: 1.25rem;
   color: white;
+}
+.page-section#portfolio .container .row .col-lg-4 .portfolio-item .portfolio-link img,
+.page-section#portfolio .container .row .col-sm-6 .portfolio-item .portfolio-link img {
+  border-radius: 10px;
 }
 .page-section#portfolio .container .row .col-lg-4 .portfolio-item .portfolio-caption,
 .page-section#portfolio .container .row .col-sm-6 .portfolio-item .portfolio-caption {
@@ -384,6 +397,9 @@ body.night-mode .page-section#portfolio .container .row .col-sm-6 .portfolio-ite
   color: #808080;
 }
 
+.page-section#about {
+  background-color: #fff;
+}
 .page-section#about .container .text-center .section-heading {
   font-size: 2.5rem;
   margin-top: 0px;
@@ -501,6 +517,11 @@ body.night-mode .page-section#portfolio .container .row .col-sm-6 .portfolio-ite
   width: 100%;
   text-align: left;
   padding: 0px 20px 0px 100px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.timeline li .timeline-panel:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 768px) {
   .timeline li .timeline-panel {
@@ -599,7 +620,7 @@ body.night-mode .timeline .timeline-panel .timeline-body p {
 }
 
 .page-section#team {
-  background-color: #fff;
+  background-color: #f9f9f9;
 }
 .page-section#team .container .text-center .section-heading {
   font-size: 2.5rem;
@@ -761,23 +782,21 @@ form textarea.is-invalid ~ .invalid-feedback {
   /* Fondo principal */
   color: #fff;
   /* Color de texto */
-  border: 2px solid #ff526f;
+  border: none;
   /* Borde del botón */
   font-weight: bold;
   border-radius: 5px;
   /* Bordes redondeados */
   text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 #submitButton:hover {
   background-color: #ff3d5c;
   /* Color de fondo al pasar el mouse */
-  border-color: #ff3d5c;
-  /* Cambio en el borde */
-  color: #fff;
-  /* Asegura que el texto sea visible */
+  transform: scale(1.05);
 }
 #submitButton:hover {
   transform: scale(1.05);

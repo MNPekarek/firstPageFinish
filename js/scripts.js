@@ -255,3 +255,10 @@ document.getElementById('searchBar').addEventListener('input', (event) => {
         }
     });
 });
+
+AOS.init({
+    duration: 1000,   // Duración de las animaciones
+    offset: 200,      // Distancia desde el viewport para activar la animación
+    easing: 'ease-in-out', 
+    once: true        // Las animaciones se ejecutan una sola vez
+});
