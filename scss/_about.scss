@@ -197,7 +197,7 @@
   
     // Personalizar elementos alternados  
     .timeline-panel {
-      float: right; //los paneles alternados se alinean a la derecha
+      float: left; //los paneles alternados se alinean a la derecha
       text-align: left;
       padding: 0px 20px 0px 100px;
   
@@ -209,6 +209,7 @@
   
       @include mixin.min-width-992 {
         padding: 0px 20px 20px;
+        float: right;
       }
   
     }

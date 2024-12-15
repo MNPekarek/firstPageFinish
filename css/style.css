@@ -126,7 +126,7 @@ header.masthead {
 }
 header.masthead .container .masthead-subheading {
   font-family: "Agu Display", serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-style: italic;
   line-height: 1.5rem;
   margin-bottom: 25px;
@@ -140,7 +140,7 @@ header.masthead .container .masthead-subheading {
   }
 }
 header.masthead .container .masthead-heading {
-  font-size: 3.5rem;
+  font-size: 1.7rem;
   font-weight: 700;
   line-height: 3.25rem;
   margin-bottom: 2rem;
@@ -555,7 +555,7 @@ body.night-mode .page-section#portfolio .container .row .col-sm-6 .portfolio-ite
 }
 
 .timeline-inverted .timeline-panel {
-  float: right;
+  float: left;
   text-align: left;
   padding: 0px 20px 0px 100px;
 }
@@ -569,6 +569,7 @@ body.night-mode .page-section#portfolio .container .row .col-sm-6 .portfolio-ite
 @media (min-width: 992px) {
   .timeline-inverted .timeline-panel {
     padding: 0px 20px 20px;
+    float: right;
   }
 }
 

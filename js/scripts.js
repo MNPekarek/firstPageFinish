@@ -256,9 +256,26 @@ document.getElementById('searchBar').addEventListener('input', (event) => {
     });
 });
 
-AOS.init({
-    duration: 1000,   // Duración de las animaciones
-    offset: 200,      // Distancia desde el viewport para activar la animación
-    easing: 'ease-in-out', 
-    once: true        // Las animaciones se ejecutan una sola vez
-});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const windowWidth = window.innerWidth;
+  
+    if (windowWidth <= 768) {
+      // Seleccionar todos los elementos con animaciones 'fade-right' y 'fade-left'
+      const aosElements = document.querySelectorAll('[data-aos="fade-right"], [data-aos="fade-left"]');
+  
+      aosElements.forEach(el => {
+        // Cambiar las animaciones problemáticas a 'fade-up'
+        el.setAttribute('data-aos', 'fade-up');
+      });
+    }
+  
+    // Inicializar AOS después de los cambios
+    AOS.init({
+      offset: 50, // Opcional: ajustar el desplazamiento
+      duration: 600, // Opcional: ajustar duración
+      once: true, // Opcional: ejecutar animaciones una vez
+    });
+  });
+  
