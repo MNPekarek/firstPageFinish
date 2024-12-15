@@ -119,15 +119,19 @@ if (localStorage.getItem('nightMode') === 'true') {
     document.body.classList.add('night-mode');
 }
 
-//scroll suave entre secciones
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
         });
+      }
     });
-});
+  });
+  
   
 
 // Obtener referencias al formulario y botón
@@ -261,21 +265,22 @@ document.getElementById('searchBar').addEventListener('input', (event) => {
 document.addEventListener('DOMContentLoaded', () => {
     const windowWidth = window.innerWidth;
   
-    if (windowWidth <= 768) {
-      // Seleccionar todos los elementos con animaciones 'fade-right' y 'fade-left'
-      const aosElements = document.querySelectorAll('[data-aos="fade-right"], [data-aos="fade-left"]');
-  
-      aosElements.forEach(el => {
-        // Cambiar las animaciones problemáticas a 'fade-up'
-        el.setAttribute('data-aos', 'fade-up');
+    if (windowWidth > 768) { 
+      // Cambiar animaciones de fade-up a fade-right en pantallas grandes SOLO para línea del tiempo
+      const timelineItems = document.querySelectorAll('.timeline-panel[data-aos="fade-up"]');
+      
+      timelineItems.forEach(el => {
+        el.setAttribute('data-aos', 'fade-right');
       });
     }
   
     // Inicializar AOS después de los cambios
     AOS.init({
-      offset: 50, // Opcional: ajustar el desplazamiento
-      duration: 600, // Opcional: ajustar duración
-      once: true, // Opcional: ejecutar animaciones una vez
+      offset: 50, // Ajustar el desplazamiento
+      duration: 600, // Duración de las animaciones
+      once: true, // Animaciones solo una vez
     });
   });
+  
+  
   
