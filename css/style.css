@@ -112,7 +112,7 @@ header.masthead {
   padding-bottom: 6rem;
   text-align: center;
   color: #ffffff;
-  background-image: url("../assets/img/header/geike-verniers-fBsFqwmwhgg-unsplash.jpg");
+  background-image: url("../assets/img/header/geike-verniers-fBsFqwmwhgg-unsplash.webp");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -718,7 +718,7 @@ body.night-mode .page-section#team .container .row:last-of-type .col-lg-8.mx-aut
 }
 #contact {
   background-color: rgb(33, 37, 41);
-  background-image: url(../assets/img/map-image.png);
+  background-image: url(../assets/img/map-image.webp);
   background-repeat: no-repeat;
   background-position: center center;
 }
