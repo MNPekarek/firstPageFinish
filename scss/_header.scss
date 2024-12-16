@@ -2,40 +2,47 @@
 @use "var";
 
 header.masthead {
-     
-    @include mixin.min-width-768 {
-      padding-top: 17rem;
-      padding-bottom: 12.5rem;
+
+  background-image: url("../assets/img/header/DALL·E\ 2024-12-15\ 480px.webp");
+  /* Usa una versión optimizada y previa del fondo */
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+
+  @include mixin.min-width-768 {
+    background-image: url("../assets/img/header/DALLE2~1.webp");
+    padding-top: 17rem;
+    padding-bottom: 12.5rem;
+  }
+
+  .container {
+
+    .masthead-subheading {
+      @include mixin.min-width-768 {
+
+        font-size: 2.25rem;
+        font-style: italic;
+        line-height: 2.25rem;
+        margin-bottom: 2rem;
+      }
+
     }
-  
-    .container {
-  
-      .masthead-subheading {
-         @include mixin.min-width-768 {
-          
-          font-size: 2.25rem;
-          font-style: italic;
-          line-height: 2.25rem;
-          margin-bottom: 2rem;
-        }
-  
+
+    .masthead-heading {
+
+      @include mixin.min-width-768 {
+        font-size: 4.5rem;
+        font-weight: 700;
+        line-height: 4.5rem;
+        margin-bottom: 4rem;
       }
-  
-      .masthead-heading {     
-  
-        @include mixin.min-width-768 {
-          font-size: 4.5rem;
-          font-weight: 700;
-          line-height: 4.5rem;
-          margin-bottom: 4rem;
-        }
-  
-  
-      }
-  
-      .btn-xl {
-        @include mixin.btn-xl;      
-      }
+
+
+    }
+
+    .btn-xl {
+      @include mixin.btn-xl;
     }
   }
-  
+}
