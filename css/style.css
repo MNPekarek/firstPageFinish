@@ -115,29 +115,11 @@ body.night-mode .navbar .container .collapse.navbar-collapse button {
   color: #918686;
 }
 
-header.masthead {
-  padding-top: 10.5rem;
-  padding-bottom: 6rem;
-  text-align: center;
-  color: #ffffff;
-  background-image: url("../assets/img/header/DALLE2~1.webp");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
-}
 @media (min-width: 768px) {
   header.masthead {
     padding-top: 17rem;
     padding-bottom: 12.5rem;
   }
-}
-header.masthead .container .masthead-subheading {
-  font-family: "Agu Display", serif;
-  font-size: 1.2rem;
-  font-style: italic;
-  line-height: 1.5rem;
-  margin-bottom: 25px;
 }
 @media (min-width: 768px) {
   header.masthead .container .masthead-subheading {
@@ -146,12 +128,6 @@ header.masthead .container .masthead-subheading {
     line-height: 2.25rem;
     margin-bottom: 2rem;
   }
-}
-header.masthead .container .masthead-heading {
-  font-size: 1.7rem;
-  font-weight: 700;
-  line-height: 3.25rem;
-  margin-bottom: 2rem;
 }
 @media (min-width: 768px) {
   header.masthead .container .masthead-heading {
