@@ -261,7 +261,7 @@ document.getElementById('searchBar').addEventListener('input', (event) => {
 });
 
 
-
+/*
 document.addEventListener('DOMContentLoaded', () => {
     const windowWidth = window.innerWidth;
   
@@ -281,6 +281,43 @@ document.addEventListener('DOMContentLoaded', () => {
       once: true, // Animaciones solo una vez
     });
   });
+*/
+// Esperar a que el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    const windowWidth = window.innerWidth;
   
+    // Asegurarse de que AOS no afecte al body (eliminamos cualquier data-aos en el body)
+    const body = document.querySelector('body');
+    if (body && body.hasAttribute('data-aos')) {
+      body.removeAttribute('data-aos');
+    }
   
+    // Cambiar animaciones de fade-up a fade-right solo para pantallas grandes (para línea del tiempo)
+    if (windowWidth > 768) {
+      const timelineItems = document.querySelectorAll('.timeline-panel[data-aos="fade-up"]');
+      timelineItems.forEach(el => {
+        el.setAttribute('data-aos', 'fade-right');
+      });
+    }
+  });
+
+
+  // Esperar a que la página completa (recursos e imágenes) esté cargada
+  window.addEventListener('load', () => {
+    // Inicializar AOS después de que toda la página haya cargado
+    AOS.init({
+      offset: 50, // Ajustar el desplazamiento
+      duration: 600, // Duración de las animaciones
+      once: true, // Animaciones solo una vez
+      disable: function () {
+        // Desactivar AOS en pantallas pequeñas (<=768px)
+        return window.innerWidth <= 768; 
+      },
+      initClassName: 'aos-init', // Usar una clase diferente para la inicialización
+      animatedClassName: 'aos-animate', // Usar una clase diferente para la animación
+      useClassNames: true, // Usar clases CSS para la animación
+      throttleDelay: 99,
+      disableMutationObserver: true, // Desactivar observador de mutaciones
+    });
+  });
   
