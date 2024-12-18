@@ -2,7 +2,15 @@
 @use "var";
 
 header.masthead {
-  
+  padding-top: 10.5rem;
+  padding-bottom: 6rem;
+  text-align: center;
+  color: white;
+  background-image: url("../assets/img/header/DALL·E\ 2024-12-15\ 480px.webp");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
 
   @include mixin.min-width-768 {
     background-image: url("../assets/img/header/DALLE2~1.webp");
@@ -19,6 +27,7 @@ header.masthead {
       font-style: italic;
       line-height: 1.5rem;
       margin-bottom: 25px;
+
       @include mixin.min-width-768 {
 
         font-size: 2.25rem;
