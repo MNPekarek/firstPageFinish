@@ -115,14 +115,6 @@ body.night-mode .navbar .container .collapse.navbar-collapse button {
   color: #918686;
 }
 
-header.masthead {
-  background-image: url("../assets/img/header/DALL·E 2024-12-15 480px.webp");
-  /* Usa una versión optimizada y previa del fondo */
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
-}
 @media (min-width: 768px) {
   header.masthead {
     background-image: url("../assets/img/header/DALLE2~1.webp");
