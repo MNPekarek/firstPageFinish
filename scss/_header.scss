@@ -2,6 +2,16 @@
 @use "var";
 
 header.masthead {
+  padding-top: 10.5rem;
+  padding-bottom: 6rem;
+  text-align: center;
+  color: white;
+  background-image: url("../assets/img/header/DALL·E\ 2024-12-15\ 480px.webp");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+
   @include mixin.min-width-768 {
     background-image: url("../assets/img/header/DALLE2~1.webp");
     padding-top: 17rem;
@@ -9,8 +19,14 @@ header.masthead {
   }
 
   .container {
+    text-align: center;
 
     .masthead-subheading {
+      font-family: "Agu Display", serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      line-height: 1.5rem;
+      margin-bottom: 25px;
       @include mixin.min-width-768 {
 
         font-size: 2.25rem;
@@ -22,6 +38,10 @@ header.masthead {
     }
 
     .masthead-heading {
+      font-size: 1.7rem;
+      font-weight: 700;
+      line-height: 3.25rem;
+      margin-bottom: 2rem;
 
       @include mixin.min-width-768 {
         font-size: 4.5rem;
