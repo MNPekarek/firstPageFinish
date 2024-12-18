@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Página 404 - No encontrada">
+  <title>404 - Página no encontrada</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff6f61, #ffc371);
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .magnifying-glass {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 20px auto;
+      animation: move 3s infinite ease-in-out;
+    }
+
+    .glass {
+      width: 80px;
+      height: 80px;
+      border: 4px solid white;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .handle {
+      position: absolute;
+      bottom: -20px;
+      left: 40px;
+      width: 10px;
+      height: 30px;
+      background: white;
+      transform: rotate(45deg);
+    }
+
+    @keyframes move {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .btn-primary {
+      background-color: #fff;
+      color: #ff6f61;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+    }
+
+    .btn-primary:hover {
+      background-color: #ffc371;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-transparent" data-aos="none" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html"><img class="img-fluid" src="./assets/img/navbar-logo1.png" alt="logo" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="./index.html#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./index.html#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./index.html#portfolio#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./index.html#portfolio#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./index.html#portfolio#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  </nav>
+
+  <!-- Main content -->
+  <div>
+    <div class="magnifying-glass">
+      <div class="glass"></div>
+      <div class="handle"></div>
+    </div>
+    <h1>404 - Página no encontrada</h1>
+    <p>¡Oops! Parece que te perdiste. Vamos a ayudarte a regresar.</p>
+    <a href="./index.html" class="btn btn-primary">Volver al inicio</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <!-- Footer-->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2024</div>
+                <div class="col-lg-4 my-3 my-lg-0">
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i
+                            class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a class="link text-decoration-none me-3" href="#!">Privacy Policy</a>
+                    <a class="link text-decoration-none" href="#!">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+  </footer>
+</body>
+
+</html>
