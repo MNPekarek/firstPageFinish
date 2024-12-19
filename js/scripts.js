@@ -263,21 +263,27 @@ document.getElementById('searchBar').addEventListener('input', (event) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const windowWidth = window.innerWidth;
-  
-    if (windowWidth > 768) { 
-      // Cambiar animaciones de fade-up a fade-right en pantallas grandes SOLO para línea del tiempo
-      const timelineItems = document.querySelectorAll('.timeline-panel[data-aos="fade-up"]');
-      
-      timelineItems.forEach(el => {
-        el.setAttribute('data-aos', 'fade-right');
-      });
-    }
-  
-    // Inicializar AOS después de los cambios
-    AOS.init({
-      offset: 50, // Ajustar el desplazamiento
-      once: true, // Animaciones solo una vez
+  const windowWidth = window.innerWidth;
+
+  // Cambiar animaciones de fade-up a fade-right en pantallas grandes SOLO para línea del tiempo
+  if (windowWidth > 768) { 
+    const timelineItems = document.querySelectorAll('.timeline-panel[data-aos="fade-up"]');
+    
+    timelineItems.forEach(el => {
+      el.setAttribute('data-aos', 'fade-right');
     });
+  }
+
+  // Inicializar AOS una sola vez
+  AOS.init({
+    offset: 50,    // Ajustar el desplazamiento
+    once: true,    // Las animaciones solo ocurren una vez
+    duration: 1000, // Duración de las animaciones
+    easing: 'ease-in-out', // Estilo de aceleración
   });
+
+  // Refrescar AOS después de los cambios en el DOM
+  AOS.refresh();
+});
+
 
