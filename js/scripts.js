@@ -277,7 +277,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicializar AOS después de los cambios
     AOS.init({
       offset: 50, // Ajustar el desplazamiento
-      duration: 600, // Duración de las animaciones
       once: true, // Animaciones solo una vez
     });
   });
