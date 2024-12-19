@@ -268,7 +268,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cambiar animaciones de fade-up a fade-right en pantallas grandes SOLO para línea del tiempo
     if (windowWidth > 768) { 
       const timelineItems = document.querySelectorAll('.timeline-panel[data-aos="fade-up"]');
-      
       timelineItems.forEach(el => {
         el.setAttribute('data-aos', 'fade-right');
       });
@@ -281,10 +280,11 @@ document.addEventListener('DOMContentLoaded', () => {
       duration: 600, // Duración de las animaciones
     });
   
-    // Refrescar AOS después de un pequeño retraso para asegurarse de que el DOM esté listo
-    setTimeout(() => {
-      AOS.refresh();
-    }, 100); // 100 ms de retraso
+    // Refrescar AOS después de los cambios
+    AOS.refresh();
   });
   
-
+  window.addEventListener('resize', () => {
+    AOS.refresh();
+  });
+  
