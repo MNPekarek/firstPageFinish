@@ -2,6 +2,19 @@
 @use "var";
 @use "animation";
 
+/*
+.scroll-anim {
+  opacity: 0;
+  transform: translateY(50px); // Posición inicial de la animación
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+  &.in-view {
+    opacity: 1;
+    transform: translate(0, 0); // Estado final
+  }
+}
+*/
+
 
 // Sección about
 .page-section {
@@ -16,12 +29,15 @@
       .text-center {
         // Títulos y subtítulos
 
+        .scroll-anim {
+          @include mixin.scroll-animation(y, 50px, 0.8s, ease-out)
+        }
 
         .section-heading {
           // Personalizar título principal
           @include mixin.title;
           font-family: "Agu Display", serif;
-          // @include mixin.animate(fadeDown, 0.6s, ease-out, 0.4s);
+          // @include mixin.animate(fadeDown, 0.6s, ease-out, 0.4s);        
         }
 
         .section-subheading {
@@ -29,6 +45,7 @@
           @include mixin.subtitles;
           color: var.$color-muted;
           // @include mixin.animate(fadeUp, 0.6s, ease-out, 0.4s);
+
         }
       }
     }
@@ -100,9 +117,6 @@
       content: "";
     }
 
-    // .zoomIn{
-      // @include mixin.animate(zoomIn, 0.6s, ease-out, 0.4s);
-    // }
     .timeline-image {
       position: absolute;
       z-index: 100;
@@ -118,8 +132,9 @@
       border-color: rgb(233, 236, 239);
       border-image: initial;
       border-radius: 100%;
-      
-      
+
+      // @include mixin.scroll-animation(y, 50px, 0.8s, ease-out);      
+
 
       @include mixin.min-width-768 {
         left: 50%;
@@ -140,15 +155,19 @@
         margin-left: -85px;
       }
     }
+    // .zoomIn {
+      // @include mixin.zoomIn();
+    // }
+
 
     // Panel de contenido
     // .fade-responsive {
-      // @include mixin.animate(fadeUp, 0.6s, ease-out, 0.4s); // Animación por defecto para pantallas pequeñas
+    // @include mixin.animate(fadeUp, 0.6s, ease-out, 0.4s); // Animación por defecto para pantallas pequeñas
 
-      // @media (min-width: 768px) {
-        // Cambia a `fadeRight` en pantallas grandes
-        // @include mixin.animate(fadeRight, 0.6s, ease-out, 0.4s);
-      // }
+    // @media (min-width: 768px) {
+    // Cambia a `fadeRight` en pantallas grandes
+    // @include mixin.animate(fadeRight, 0.6s, ease-out, 0.4s);
+    // }
     // }
 
     .timeline-panel {
@@ -159,6 +178,8 @@
       text-align: left;
       padding: 0px 20px 0px 100px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      // @include mixin.scroll-animation(y, 50px, 0.8s, ease-out);
 
       &:hover {
         transform: scale(1.05); //aumenta ligeramente el tamaño
@@ -214,7 +235,7 @@
 // Estilo para los elementos invertidos
 .timeline-inverted {
   // .fadeUp-inverted {
-    // @include mixin.animate(fadeUp, 0.6s, ease-out, 0.4s);
+  // @include mixin.animate(fadeUp, 0.6s, ease-out, 0.4s);
   // }
 
   // Personalizar elementos alternados  

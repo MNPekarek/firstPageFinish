@@ -260,40 +260,65 @@ document.getElementById('searchBar').addEventListener('input', (event) => {
     });
 });
 
-
+/*
 document.addEventListener("DOMContentLoaded", () => {
-    const animatedElements = document.querySelectorAll(".animate-on-scroll");
+    const scrollElements = document.querySelectorAll(".scroll-anim");
   
+    // Opciones del IntersectionObserver
     const observerOptions = {
-      root: null, // Observará en relación al viewport
-      rootMargin: "0px", // Sin márgenes adicionales
-      threshold: 0.1, // El 10% del elemento debe ser visible para activar la animación
+      root: null, // Observa en el viewport principal
+      rootMargin: "0px 0px -50px 0px", // Espaciado adicional (puedes ajustar)
+      threshold: 0.1, // Detecta cuando el 10% del elemento es visible
     };
   
-    const handleIntersect = (entries, observer) => {
+    // Callback para manejar la intersección
+    const handleIntersection = (entries, observer) => {
       entries.forEach((entry) => {
+        console.log("Elemento observado:", entry.target);
+        console.log("¿Es visible?:", entry.isIntersecting);
+
+
         if (entry.isIntersecting) {
-          // Si el elemento está visible en el viewport
-          const element = entry.target;
-  
-          // Añadir la clase de animación a la clase existente
-          const animationClass = Array.from(element.classList).find(className => className !== "animate-on-scroll");
-          if (animationClass) {
-            element.classList.add(animationClass); // Añadimos la clase de animación
-          }
-  
-          // Dejar de observar el elemento una vez que ha sido animado (opcional)
-          observer.unobserve(entry.target);
+          entry.target.classList.add("in-view"); // Agregar clase para animar
+          observer.unobserve(entry.target); // Deja de observar después de la animación
         }
       });
     };
   
-    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+    // Crear instancia del IntersectionObserver
+    const observer = new IntersectionObserver(handleIntersection, observerOptions);
   
-    if (animatedElements.length > 0) {
-      animatedElements.forEach((el) => observer.observe(el)); // Observar todos los elementos
-    } else {
-      console.error("No se encontraron elementos con la clase 'animate-on-scroll'");
-    }
+    // Observar cada elemento animado
+    scrollElements.forEach((el) => observer.observe(el));
   });
-  
+*/
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Seleccionar todos los elementos con el atributo data-animation
+    const animatedElements = document.querySelectorAll("[data-animation]");
+
+    // Opciones para el IntersectionObserver
+    const observerOptions = {
+        root: null, // Viewport completo
+        rootMargin: "0px 0px -50px 0px", // Espaciado para detectar antes de que entre completamente
+        threshold: 0.1, // Detectar cuando el 10% del elemento es visible
+    };
+
+    // Callback para manejar la intersección
+    const handleIntersection = (entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const animationType = entry.target.getAttribute("data-animation");
+                entry.target.classList.add("animate", animationType); // Agrega clases para animar
+                observer.unobserve(entry.target); // Deja de observar después de animar
+            }
+        });
+    };
+
+    // Crear el IntersectionObserver
+    const observer = new IntersectionObserver(handleIntersection, observerOptions);
+
+    // Observar cada elemento con data-animation
+    animatedElements.forEach((el) => observer.observe(el));
+});

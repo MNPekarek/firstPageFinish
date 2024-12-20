@@ -61,35 +61,34 @@
 
 
 // Crea clases específicas para cada animación
-.fade-up {
-  @include animate(fadeUp, 0.8s);
-}
-
-.zoomIn {
-  @include animate(fadeDown, 0.8s);
-}
-
-.slide-in {
-  @include animate(slideIn, 1s);
-}
-
-.zoom-in {
-  @include animate(zoomIn, 0.8s);
-}
-
-.fade-right {
-  @include animate(fadeRight, 1s);
-}
-
-.fade-left {
-  @include animate(fadeLeft, 1s);
-}
-
-@mixin fade($direction, $distance: 20px, $duration: 1s, $delay: 0s) {
+@mixin scroll-animation($direction, $distance, $duration, $easing) {
   opacity: 0;
   transform: translate#{$direction}($distance);
-  animation: fade#{$direction} #{$duration} ease-out #{$delay} forwards;
+  transition: opacity $duration $easing, transform $duration $easing;
+
+  &.in-view {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 }
+
+@mixin zoomIn {
+  opacity: 0;
+  transform: scale(0.8);
+}
+to {
+  opacity: 1;
+  transform: scale(1);
+}
+
+// Ejemplo de uso
+// .fade-up {
+  // @include scroll-animation(y, 50px, 0.8s, ease-out);
+// }
+
+// .fade-left {
+  // @include scroll-animation(x, -50px, 0.8s, ease-out);
+// }
 
 
 
