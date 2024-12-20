@@ -1,5 +1,5 @@
 @use "var";
-
+@use "animation";
 
 //Mixin para modificar los botones XL
 @mixin btn-xl {
@@ -47,6 +47,52 @@
   font-style: italic;
   margin-bottom: 4rem;
 }
+
+// Mixin animaciones
+// Crea un mixin genérico para animaciones
+@mixin animate($animation, $duration: 1s, $easing: ease-out, $delay: 0s) {
+  animation-name: #{$animation};
+  animation-duration: #{$duration};
+  animation-timing-function: #{$easing};
+  animation-delay: #{$delay};
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+
+// Crea clases específicas para cada animación
+.fade-up {
+  @include animate(fadeUp, 0.8s);
+}
+
+.zoomIn {
+  @include animate(fadeDown, 0.8s);
+}
+
+.slide-in {
+  @include animate(slideIn, 1s);
+}
+
+.zoom-in {
+  @include animate(zoomIn, 0.8s);
+}
+
+.fade-right {
+  @include animate(fadeRight, 1s);
+}
+
+.fade-left {
+  @include animate(fadeLeft, 1s);
+}
+
+@mixin fade($direction, $distance: 20px, $duration: 1s, $delay: 0s) {
+  opacity: 0;
+  transform: translate#{$direction}($distance);
+  animation: fade#{$direction} #{$duration} ease-out #{$delay} forwards;
+}
+
+
+
 
 
 // Mixin para media query de ancho mínimo de 576px

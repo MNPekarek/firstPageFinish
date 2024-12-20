@@ -1,281 +1,304 @@
 @use "mixin";
 @use "var";
+@use "animation";
+
 
 // Sección about
 .page-section {
-    // Estilos generales para la sección "About"
-  
-  
-    &#about {
-      // Personalizar contenedor
-      background-color: #fff;
-  
-      .container {      
-        .text-center {
-          // Títulos y subtítulos
-  
-  
-          .section-heading {
-            // Personalizar título principal
-            @include mixin.title; 
-            font-family: "Agu Display",serif;
-          }
-  
-          .section-subheading {
-            // Personalizar subtítulo
-            @include mixin.subtitles; 
-            color: var.$color-muted;  
-          }
+  // Estilos generales para la sección "About"
+
+
+  &#about {
+    // Personalizar contenedor
+    background-color: #fff;
+
+    .container {
+      .text-center {
+        // Títulos y subtítulos
+
+
+        .section-heading {
+          // Personalizar título principal
+          @include mixin.title;
+          font-family: "Agu Display", serif;
+          // @include mixin.animate(fadeDown, 0.6s, ease-out, 0.4s);
+        }
+
+        .section-subheading {
+          // Personalizar subtítulo
+          @include mixin.subtitles;
+          color: var.$color-muted;
+          // @include mixin.animate(fadeUp, 0.6s, ease-out, 0.4s);
         }
       }
     }
   }
-  
-  // Línea de tiempo
-  .timeline {
-    // Elementos de la lista
+}
+
+// Línea de tiempo
+.timeline {
+  // Elementos de la lista
+  position: relative;
+  padding: 0px;
+  list-style: none;
+
+
+  &::before {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 40px; //centra la linea horizontalmente
+    width: 2px; //grosor de la linea 
+    margin-left: -1.5px;
+    content: "";
+    background-color: rgb(233, 236, 239); //color de la línea  
+
+    //box-sizing: border-box;
+    @include mixin.min-width-768 {
+      left: 50%;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+    box-sizing: border-box;
+  }
+
+  li {
+    // Imagen de la línea de tiempo
     position: relative;
-    padding: 0px;
-    list-style: none;
-  
-  
+    min-height: 50px;
+    margin-bottom: 50px;
+
+    @include mixin.min-width-768 {
+      min-height: 100px;
+      margin-bottom: 100px;
+    }
+
+    @include mixin.min-width-992 {
+      min-height: 150px;
+    }
+
+    @include mixin.min-width-1200 {
+      min-height: 170px;
+    }
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+
     &::before {
-      position: absolute;
-      top: 0px;
-      bottom: 0px;
-      left: 40px; //centra la linea horizontalmente
-      width: 2px; //grosor de la linea 
-      margin-left: -1.5px;
+      display: table;
       content: "";
-      background-color: rgb(233, 236, 239); //color de la línea  
-  
-      //box-sizing: border-box;
+    }
+
+    &::after {
+      clear: both;
+      display: table;
+      content: "";
+    }
+
+    // .zoomIn{
+      // @include mixin.animate(zoomIn, 0.6s, ease-out, 0.4s);
+    // }
+    .timeline-image {
+      position: absolute;
+      z-index: 100;
+      left: 0px;
+      width: 80px;
+      height: 80px;
+      margin-left: 0px;
+      text-align: center;
+      color: white;
+      background: linear-gradient(90deg, var.$colortext1, var.$colortext2, var.$colortext3, var.$colortext4);
+      border-width: 7px;
+      border-style: solid;
+      border-color: rgb(233, 236, 239);
+      border-image: initial;
+      border-radius: 100%;
+      
+      
+
       @include mixin.min-width-768 {
         left: 50%;
+        width: 100px;
+        height: 100px;
+        margin-left: -50px;
       }
-    }
-  
-    &::after {
-      content: "";
-      display: table;
-      clear: both;
-      box-sizing: border-box;
-    }
-  
-    li {
-      // Imagen de la línea de tiempo
-      position: relative;
-      min-height: 50px;
-      margin-bottom: 50px;
-  
-      @include mixin.min-width-768 {
-        min-height: 100px;
-        margin-bottom: 100px;
-      }
-  
+
       @include mixin.min-width-992 {
-        min-height: 150px;
+        width: 150px;
+        height: 150px;
+        margin-left: -75px;
       }
-  
+
       @include mixin.min-width-1200 {
-        min-height: 170px;
-      }
-  
-      &:last-child {
-        margin-bottom: 0px;
-      }
-  
-      &::before {
-        display: table;
-        content: "";
-      }
-  
-      &::after {
-        clear: both;
-        display: table;
-        content: "";
-      }
-  
-      .timeline-image {
-        position: absolute;
-        z-index: 100;
-        left: 0px;
-        width: 80px;
-        height: 80px;
-        margin-left: 0px;
-        text-align: center;
-        color: white;
-        background: linear-gradient(90deg, var.$colortext1, var.$colortext2, var.$colortext3, var.$colortext4);
-        border-width: 7px;
-        border-style: solid;
-        border-color: rgb(233, 236, 239);
-        border-image: initial;
-        border-radius: 100%;
-  
-        @include mixin.min-width-768 {
-          left: 50%;
-          width: 100px;
-          height: 100px;
-          margin-left: -50px;
-        }
-  
-        @include mixin.min-width-992 {
-          width: 150px;
-          height: 150px;
-          margin-left: -75px;
-        }
-  
-        @include mixin.min-width-1200 {
-          width: 170px;
-          height: 170px;
-          margin-left: -85px;
-        }
-      }
-  
-      // Panel de contenido
-      .timeline-panel {
-        // Encabezado del panel      
-        position: relative;
-        float: right;
-        width: 100%;
-        text-align: left;
-        padding: 0px 20px 0px 100px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        &:hover{
-          transform: scale(1.05); //aumenta ligeramente el tamaño
-          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-        }
-  
-        @include mixin.min-width-768 {
-          float: left;
-          width: 41%;
-          text-align: right;
-          padding: 0px 20px 20px 30px;
-        }
-  
-        @include mixin.min-width-992 {
-          padding: 0px 20px 20px;
-        }
-  
-        @include mixin.min-width-1200 {
-          padding: 0px 20px 20px 100px;
-        }
-      }
-  
-      .timeline-heading {
-        h4 {
-          // Personalizar título de las fechas
-          margin-top: 0px;
-          color: inherit;
-  
-        }
-  
-        .subheading {
-          // Personalizar subtítulo
-          text-transform: none;
-  
-        }
-      }
-  
-      // Cuerpo del panel
-      .timeline-body {
-        p {
-          // Personalizar texto del cuerpo
-          margin-bottom: 0px;
-          line-height: 1.75;
-          color: var.$color-muted;  
-  
-        }
+        width: 170px;
+        height: 170px;
+        margin-left: -85px;
       }
     }
-  
-  
-  }
-  
-  // Estilo para los elementos invertidos
-  .timeline-inverted {
-  
-    // Personalizar elementos alternados  
+
+    // Panel de contenido
+    // .fade-responsive {
+      // @include mixin.animate(fadeUp, 0.6s, ease-out, 0.4s); // Animación por defecto para pantallas pequeñas
+
+      // @media (min-width: 768px) {
+        // Cambia a `fadeRight` en pantallas grandes
+        // @include mixin.animate(fadeRight, 0.6s, ease-out, 0.4s);
+      // }
+    // }
+
     .timeline-panel {
-      float: left; //los paneles alternados se alinean a la derecha
+      // Encabezado del panel      
+      position: relative;
+      float: right;
+      width: 100%;
       text-align: left;
       padding: 0px 20px 0px 100px;
-  
-      @include mixin.min-width-768 {
-        float: right !important;
-        text-align: left !important;
-        padding: 0px 30px 20px 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05); //aumenta ligeramente el tamaño
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
       }
-  
+
+      @include mixin.min-width-768 {
+        float: left;
+        width: 41%;
+        text-align: right;
+        padding: 0px 20px 20px 30px;
+      }
+
       @include mixin.min-width-992 {
         padding: 0px 20px 20px;
-        float: right;
       }
-  
-    }
-  }
-  
-  // Estilo para el último elemento (hito final)
-  .timeline-image {
-    h4 {
-      // Personalizar mensaje final
-      font-size: 10px;
-      line-height: 14px;
-      margin-top: 12px;
-  
-      @include mixin.min-width-768 {
-        font-size: 13px;
-        line-height: 18px;
-        margin-top: 16px;
-      }
-  
-      @include mixin.min-width-992 {
-        font-size: 18px;
-        line-height: 26px;
-        margin-top: 30px;
-      }
-  
+
       @include mixin.min-width-1200 {
-        margin-top: 40px;
+        padding: 0px 20px 20px 100px;
+      }
+    }
+
+    .timeline-heading {
+      h4 {
+        // Personalizar título de las fechas
+        margin-top: 0px;
+        color: inherit;
+
+      }
+
+      .subheading {
+        // Personalizar subtítulo
+        text-transform: none;
+
+      }
+    }
+
+    // Cuerpo del panel
+    .timeline-body {
+      p {
+        // Personalizar texto del cuerpo
+        margin-bottom: 0px;
+        line-height: 1.75;
+        color: var.$color-muted;
+
       }
     }
   }
-  // Estilos específicos para Night Mode
-  body.night-mode {
-    // Sección principal
-    .page-section#about {
-      background-color: var.$bg-dark;
-  
-      .text-center {
-        .section-heading {
-          color: var.$text-dark;
-        }
-        .section-subheading {
-          color: var.$color-muted-dark;
-        }
-      }
+
+
+}
+
+// Estilo para los elementos invertidos
+.timeline-inverted {
+  // .fadeUp-inverted {
+    // @include mixin.animate(fadeUp, 0.6s, ease-out, 0.4s);
+  // }
+
+  // Personalizar elementos alternados  
+  .timeline-panel {
+    float: left; //los paneles alternados se alinean a la derecha
+    text-align: left;
+    padding: 0px 20px 0px 100px;
+
+    @include mixin.min-width-768 {
+      float: right !important;
+      text-align: left !important;
+      padding: 0px 30px 20px 20px;
     }
-  
-    // Línea de tiempo
-    .timeline {
-      &::before {
-        background-color: var.$line-color-dark; // Línea de tiempo en modo nocturno
+
+    @include mixin.min-width-992 {
+      padding: 0px 20px 20px;
+      float: right;
+    }
+
+  }
+}
+
+// Estilo para el último elemento (hito final)
+.timeline-image {
+  h4 {
+    // Personalizar mensaje final
+    font-size: 10px;
+    line-height: 14px;
+    margin-top: 12px;
+
+    @include mixin.min-width-768 {
+      font-size: 13px;
+      line-height: 18px;
+      margin-top: 16px;
+    }
+
+    @include mixin.min-width-992 {
+      font-size: 18px;
+      line-height: 26px;
+      margin-top: 30px;
+    }
+
+    @include mixin.min-width-1200 {
+      margin-top: 40px;
+    }
+  }
+}
+
+// Estilos específicos para Night Mode
+body.night-mode {
+
+  // Sección principal
+  .page-section#about {
+    background-color: var.$bg-dark;
+
+    .text-center {
+      .section-heading {
+        color: var.$text-dark;
       }
-  
-      .timeline-image {
-        border-color: var.$line-color-dark; // Color del borde de las imágenes
-      }
-  
-      .timeline-panel {  
-        .timeline-heading h4 {
-          color: var.$text-dark;
-        }
-  
-        .timeline-body p {
-          color: var.$text-muted-dark;
-        }
+
+      .section-subheading {
+        color: var.$color-muted-dark;
       }
     }
   }
-  
-  
+
+  // Línea de tiempo
+  .timeline {
+    &::before {
+      background-color: var.$line-color-dark; // Línea de tiempo en modo nocturno
+    }
+
+    .timeline-image {
+      border-color: var.$line-color-dark; // Color del borde de las imágenes
+    }
+
+    .timeline-panel {
+      .timeline-heading h4 {
+        color: var.$text-dark;
+      }
+
+      .timeline-body p {
+        color: var.$text-muted-dark;
+      }
+    }
+  }
+}

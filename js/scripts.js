@@ -261,30 +261,39 @@ document.getElementById('searchBar').addEventListener('input', (event) => {
 });
 
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    const windowWidth = window.innerWidth;
+document.addEventListener("DOMContentLoaded", () => {
+    const animatedElements = document.querySelectorAll(".animate-on-scroll");
   
-    // Cambiar animaciones de fade-up a fade-right en pantallas grandes SOLO para línea del tiempo
-    if (windowWidth > 768) { 
-      const timelineItems = document.querySelectorAll('.timeline-panel[data-aos="fade-up"]');
-      timelineItems.forEach(el => {
-        el.setAttribute('data-aos', 'fade-right');
+    const observerOptions = {
+      root: null, // Observará en relación al viewport
+      rootMargin: "0px", // Sin márgenes adicionales
+      threshold: 0.1, // El 10% del elemento debe ser visible para activar la animación
+    };
+  
+    const handleIntersect = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Si el elemento está visible en el viewport
+          const element = entry.target;
+  
+          // Añadir la clase de animación a la clase existente
+          const animationClass = Array.from(element.classList).find(className => className !== "animate-on-scroll");
+          if (animationClass) {
+            element.classList.add(animationClass); // Añadimos la clase de animación
+          }
+  
+          // Dejar de observar el elemento una vez que ha sido animado (opcional)
+          observer.unobserve(entry.target);
+        }
       });
+    };
+  
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+  
+    if (animatedElements.length > 0) {
+      animatedElements.forEach((el) => observer.observe(el)); // Observar todos los elementos
+    } else {
+      console.error("No se encontraron elementos con la clase 'animate-on-scroll'");
     }
-  
-    // Inicializar AOS una sola vez
-    AOS.init({
-      offset: 50,    // Ajustar el desplazamiento
-      once: true,    // Las animaciones solo ocurren una vez
-      duration: 600, // Duración de las animaciones
-    });
-  
-    // Refrescar AOS después de los cambios
-    AOS.refresh();
-  });
-  
-  window.addEventListener('resize', () => {
-    AOS.refresh();
   });
   

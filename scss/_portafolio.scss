@@ -1,6 +1,19 @@
 
 @use "mixin";
 @use "var";
+@use "animation";
+
+.animate-on-scroll {
+  opacity: 0; // Empieza oculto
+  transform: translateY(30px); // Posición inicial (ajusta según animación)
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+  &.visible {
+    opacity: 1 !important; // Aparece
+    transform: translateY(0) !important; // Termina en su posición final
+  }
+}
+
 
 // Portfolio Grid Section
 .page-section {
@@ -56,6 +69,7 @@
           // Estilos para la fila principal
           .col-lg-4,
           .col-sm-6 {
+            // @include mixin.animate(fadeUp, 0.6s, ease-out, 0.4s); 
             .portfolio-item {
               // Estilos para cada ítem del portafolio
               max-width: 26rem;
