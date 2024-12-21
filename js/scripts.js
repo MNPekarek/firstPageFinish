@@ -260,40 +260,8 @@ document.getElementById('searchBar').addEventListener('input', (event) => {
     });
 });
 
+
 /*
-document.addEventListener("DOMContentLoaded", () => {
-    const scrollElements = document.querySelectorAll(".scroll-anim");
-  
-    // Opciones del IntersectionObserver
-    const observerOptions = {
-      root: null, // Observa en el viewport principal
-      rootMargin: "0px 0px -50px 0px", // Espaciado adicional (puedes ajustar)
-      threshold: 0.1, // Detecta cuando el 10% del elemento es visible
-    };
-  
-    // Callback para manejar la intersección
-    const handleIntersection = (entries, observer) => {
-      entries.forEach((entry) => {
-        console.log("Elemento observado:", entry.target);
-        console.log("¿Es visible?:", entry.isIntersecting);
-
-
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view"); // Agregar clase para animar
-          observer.unobserve(entry.target); // Deja de observar después de la animación
-        }
-      });
-    };
-  
-    // Crear instancia del IntersectionObserver
-    const observer = new IntersectionObserver(handleIntersection, observerOptions);
-  
-    // Observar cada elemento animado
-    scrollElements.forEach((el) => observer.observe(el));
-  });
-*/
-
-
 document.addEventListener("DOMContentLoaded", () => {
     // Seleccionar todos los elementos con el atributo data-animation
     const animatedElements = document.querySelectorAll("[data-animation]");
@@ -322,3 +290,26 @@ document.addEventListener("DOMContentLoaded", () => {
     // Observar cada elemento con data-animation
     animatedElements.forEach((el) => observer.observe(el));
 });
+*/
+
+document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll("[data-animation]");
+  
+    const handleScroll = () => {
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+  
+        if (inView) {
+          el.classList.add("animate");
+        } else {
+          el.classList.remove("animate"); // Si quieres que la animación sea reversible
+        }
+      });
+    };
+  
+    // Ejecuta el evento en scroll y al cargar la página
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Para animar los elementos que ya están visibles
+  });
+  

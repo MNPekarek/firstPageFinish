@@ -1098,7 +1098,51 @@ body.night-mode .portfolio-modal .container .row .col-lg-8 .modal-body .btn:hove
 
 [data-animation] {
   opacity: 0;
-  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+/* Estado inicial específico para cada tipo de animación */
+[data-animation=fade-up] {
+  transform: translateY(20px); /* Ajusta según la distancia deseada */
+}
+
+[data-animation=zoom-in] {
+  transform: scale(0.6);
+}
+
+[data-animation=slide-left] {
+  transform: translateX(-100px);
+}
+
+[data-animation=slide-right] {
+  transform: translateX(100px);
+}
+
+/* Estado animado para cada tipo de animación */
+[data-animation=fade-up].animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-animation=zoom-in].animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+[data-animation=slide-left].animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+[data-animation=slide-right].animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/*
+[data-animation] {
+  opacity: 0;
+  transform: scale(0.6);
   transition: all 0.6s ease-out;
 }
 
@@ -1107,6 +1151,11 @@ body.night-mode .portfolio-modal .container .row .col-lg-8 .modal-body .btn:hove
   transform: translateY(0);
 }
 
+.animate.zoom-in {
+  opacity: 1;
+  transform: scale(1);
+}
+*/
 *,
 *::before,
 *::after {
