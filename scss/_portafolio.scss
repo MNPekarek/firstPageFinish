@@ -44,6 +44,9 @@
             &:hover{
               background-color: var.$colortext2;
             }
+            &:focus{
+              background-color: var.$colortext2;
+            }
           }
         }
 

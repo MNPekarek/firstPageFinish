@@ -256,7 +256,7 @@ header.masthead .container .btn-xl {
 header.masthead .container .btn-xl:hover {
   background-color: #ff3d5c;
   /* Color de fondo al pasar el mouse */
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 #services.page-section {
@@ -349,6 +349,9 @@ body.night-mode #services.page-section .container .row p {
   background-color: #f4f0f0;
 }
 .page-section#portfolio .container .text-center button:hover {
+  background-color: #ff526f;
+}
+.page-section#portfolio .container .text-center button:focus {
   background-color: #ff526f;
 }
 .page-section#portfolio .container .text-center input {
@@ -721,6 +724,9 @@ body.night-mode .timeline .timeline-image {
 body.night-mode .timeline .timeline-panel .timeline-heading h4 {
   color: #f5f5f5;
 }
+body.night-mode .timeline .timeline-panel:hover {
+  box-shadow: 0 8px 15px rgba(185, 182, 182, 0.2);
+}
 body.night-mode .timeline .timeline-panel .timeline-body p {
   color: #808080;
 }
@@ -902,7 +908,7 @@ form textarea.is-invalid ~ .invalid-feedback {
 #submitButton:hover {
   background-color: #ff3d5c;
   /* Color de fondo al pasar el mouse */
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 #submitButton:hover {
   transform: scale(1.05);
@@ -1106,6 +1112,10 @@ body.night-mode .portfolio-modal .container .row .col-lg-8 .modal-body .btn:hove
   transform: translateY(20px); /* Ajusta según la distancia deseada */
 }
 
+[data-animation=fade-down] {
+  transform: translateY(-20px);
+}
+
 [data-animation=zoom-in] {
   transform: scale(0.6);
 }
@@ -1120,6 +1130,11 @@ body.night-mode .portfolio-modal .container .row .col-lg-8 .modal-body .btn:hove
 
 /* Estado animado para cada tipo de animación */
 [data-animation=fade-up].animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-animation=fade-down].animate {
   opacity: 1;
   transform: translateY(0);
 }

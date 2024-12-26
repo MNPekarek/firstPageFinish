@@ -316,6 +316,9 @@ body.night-mode {
       .timeline-heading h4 {
         color: var.$text-dark;
       }
+      &:hover {
+        box-shadow: 0 8px 15px rgba(185, 182, 182, 0.2);
+      }
 
       .timeline-body p {
         color: var.$text-muted-dark;

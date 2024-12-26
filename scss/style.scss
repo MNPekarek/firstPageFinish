@@ -19,6 +19,9 @@
 [data-animation="fade-up"] {
   transform: translateY(20px); /* Ajusta según la distancia deseada */
 }
+[data-animation="fade-down"] {
+  transform: translateY(-20px);
+}
 
 [data-animation="zoom-in"] {
   transform: scale(0.6);
@@ -34,6 +37,10 @@
 
 /* Estado animado para cada tipo de animación */
 [data-animation="fade-up"].animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-animation="fade-down"].animate {
   opacity: 1;
   transform: translateY(0);
 }
