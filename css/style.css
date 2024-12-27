@@ -402,6 +402,8 @@ body.night-mode #services.page-section .container .row p {
 .page-section#portfolio .container .row .col-lg-4 .portfolio-item .portfolio-link img,
 .page-section#portfolio .container .row .col-sm-6 .portfolio-item .portfolio-link img {
   border-radius: 10px;
+  height: 400px;
+  width: 450px;
 }
 .page-section#portfolio .container .row .col-lg-4 .portfolio-item .portfolio-caption,
 .page-section#portfolio .container .row .col-sm-6 .portfolio-item .portfolio-caption {
