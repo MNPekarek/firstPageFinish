@@ -133,7 +133,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
   
   
-
+/*
 // Obtener referencias al formulario y botón
 const form = document.getElementById('contactForm');
 const submitButton = document.getElementById('submitButton');
@@ -227,6 +227,100 @@ function sendFormData() {
             document.getElementById('submitSuccessMessage').classList.add('d-none');
         });
 }
+*/
+
+// Obtener referencias al formulario y botón
+const form = document.getElementById('contactForm');
+const submitButton = document.getElementById('submitButton');
+
+// Función para validar un campo
+function validateField(field, regex = null) {
+    const value = field.value.trim();
+    const invalidFeedback = field.nextElementSibling;
+
+    if (regex) {
+        if (!regex.test(value)) {
+            field.classList.add('is-invalid');
+            field.classList.remove('is-valid');
+            if (invalidFeedback) invalidFeedback.textContent = field.dataset.errorMessage || 'Campo no válido.';
+            return false;
+        }
+    } else {
+        if (!value) {
+            field.classList.add('is-invalid');
+            field.classList.remove('is-valid');
+            if (invalidFeedback) invalidFeedback.textContent = field.dataset.errorMessage || 'Este campo es obligatorio.';
+            return false;
+        }
+    }
+
+    field.classList.remove('is-invalid');
+    field.classList.add('is-valid');
+    if (invalidFeedback) invalidFeedback.textContent = '';
+    return true;
+}
+
+// Validación de todos los campos en tiempo real
+function validateForm() {
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('phone');
+    const message = document.getElementById('message');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const isNameValid = validateField(name);
+    const isEmailValid = validateField(email, emailRegex);
+    const isPhoneValid = validateField(phone);
+    const isMessageValid = validateField(message);
+
+    return isNameValid && isEmailValid && isPhoneValid && isMessageValid;
+}
+
+// Escuchar eventos 'input' para cada campo
+form.addEventListener('input', () => {
+    const isFormValid = validateForm();
+    submitButton.disabled = !isFormValid; // Habilita/deshabilita el botón de envío
+});
+
+// Validación al enviar el formulario
+form.addEventListener('submit', function (e) {
+    e.preventDefault(); // Evita el envío predeterminado
+    const isValid = validateForm();
+
+    if (isValid) {
+        sendFormData(); // Envía el formulario si todo es válido
+    }
+});
+
+// Envío del formulario con fetch
+function sendFormData() {
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json',
+        },
+    })
+        .then(response => {
+            if (response.ok) {
+                document.getElementById('submitSuccessMessage').classList.remove('d-none');
+                document.getElementById('submitErrorMessage').classList.add('d-none');
+                form.reset();
+                submitButton.disabled = true; // Deshabilitar el botón tras el envío
+                submitButton.innerText = 'Message Sent'; // Cambiar el texto del botón
+                document.querySelectorAll('.is-valid').forEach((field) => field.classList.remove('is-valid'));
+            } else {
+                document.getElementById('submitErrorMessage').classList.remove('d-none');
+                document.getElementById('submitSuccessMessage').classList.add('d-none');
+            }
+        })
+        .catch(() => {
+            document.getElementById('submitErrorMessage').classList.remove('d-none');
+            document.getElementById('submitSuccessMessage').classList.add('d-none');
+        });
+}
 
 
 // JavaScript para la interacción del portafolio
@@ -260,37 +354,6 @@ document.getElementById('searchBar').addEventListener('input', (event) => {
     });
 });
 
-
-/*
-document.addEventListener("DOMContentLoaded", () => {
-    // Seleccionar todos los elementos con el atributo data-animation
-    const animatedElements = document.querySelectorAll("[data-animation]");
-
-    // Opciones para el IntersectionObserver
-    const observerOptions = {
-        root: null, // Viewport completo
-        rootMargin: "0px 0px -50px 0px", // Espaciado para detectar antes de que entre completamente
-        threshold: 0.1, // Detectar cuando el 10% del elemento es visible
-    };
-
-    // Callback para manejar la intersección
-    const handleIntersection = (entries, observer) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                const animationType = entry.target.getAttribute("data-animation");
-                entry.target.classList.add("animate", animationType); // Agrega clases para animar
-                observer.unobserve(entry.target); // Deja de observar después de animar
-            }
-        });
-    };
-
-    // Crear el IntersectionObserver
-    const observer = new IntersectionObserver(handleIntersection, observerOptions);
-
-    // Observar cada elemento con data-animation
-    animatedElements.forEach((el) => observer.observe(el));
-});
-*/
 
 document.addEventListener("DOMContentLoaded", () => {
     const elements = document.querySelectorAll("[data-animation]");
