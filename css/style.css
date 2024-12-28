@@ -137,8 +137,31 @@ to {
 }
 .navbar .container button {
   background-color: transparent;
-  border-color: transparent;
-  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+@media (min-width: 992px) {
+  .navbar .container button {
+    margin-left: 15rem;
+  }
+}
+.navbar .container button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.navbar .container button .icon {
+  font-size: 24px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+.navbar .container button .sun {
+  color: #ffcc00;
+}
+.navbar .container button .moon {
+  color: #ffffff;
 }
 .navbar .container .navbar-toggler {
   font-size: 0.75rem;
@@ -374,6 +397,7 @@ body.night-mode #services.page-section .container .row p {
 .page-section#portfolio .container .row .col-sm-6 .portfolio-item:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
 }
 .page-section#portfolio .container .row .col-lg-4 .portfolio-item .portfolio-link,
 .page-section#portfolio .container .row .col-sm-6 .portfolio-item .portfolio-link {
@@ -990,7 +1014,17 @@ body.night-mode .footer .container .row .col-lg-4 .link {
 .portfolio-modal.modal {
   transition: opacity 0.3s ease;
   opacity: 0;
-  animation: fadeIn 0.3s ease-in-out;
+  transform: translateY(-50px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin-top: 25px;
+}
+.portfolio-modal.modal.open {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.portfolio-modal.modal.close {
+  opacity: 0;
+  transform: translateY(-50px);
 }
 .portfolio-modal.modal.show {
   opacity: 1;

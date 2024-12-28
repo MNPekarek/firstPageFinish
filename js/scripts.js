@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-
+/*
 //night mode
 document.addEventListener("DOMContentLoaded", () => {
     const themeToggle = document.getElementById("theme-toggle");
@@ -83,6 +83,104 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("theme", isNightMode ? "night" : "light");
     });
 });
+*/
+
+
+/*
+//night mode
+document.addEventListener("DOMContentLoaded", () => {
+    const themeToggle = document.getElementById("theme-toggle");
+
+    // Consulta de tema: aplica el modo oscuro según la preferencia del sistema
+    if (!localStorage.getItem("theme")) {
+        const prefersNight = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (prefersNight) {
+            document.body.classList.add("night-mode");
+        }
+    } else {
+        // Aplica el tema guardado en localStorage
+        const currentTheme = localStorage.getItem("theme");
+        if (currentTheme === "night") {
+            document.body.classList.add("night-mode");
+        }
+    }
+
+    // Actualiza el estado inicial de los íconos
+    updateIcons();
+
+    // Escucha el cambio de tema
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("night-mode");
+
+        // Guarda la preferencia
+        const isNightMode = document.body.classList.contains("night-mode");
+        localStorage.setItem("theme", isNightMode ? "night" : "light");
+
+        // Actualiza los íconos
+        updateIcons();
+    });
+
+    function updateIcons() {
+        const isNightMode = document.body.classList.contains("night-mode");
+        const sunIcon = themeToggle.querySelector(".icon.sun");
+        const moonIcon = themeToggle.querySelector(".icon.moon");
+
+        if (isNightMode) {
+            sunIcon.style.opacity = "1";
+            moonIcon.style.opacity = "0";
+        } else {
+            sunIcon.style.opacity = "0";
+            moonIcon.style.opacity = "1";
+        }
+    }
+});
+*/
+
+document.addEventListener("DOMContentLoaded", () => {
+    const themeToggle = document.getElementById("theme-toggle");
+
+    if (!localStorage.getItem("theme")) {
+        const prefersNight = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (prefersNight) {
+            document.body.classList.add("night-mode");
+        }
+    } else {
+        const currentTheme = localStorage.getItem("theme");
+        if (currentTheme === "night") {
+            document.body.classList.add("night-mode");
+        }
+    }
+
+    updateIcons();
+
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("night-mode");
+        const isNightMode = document.body.classList.contains("night-mode");
+        localStorage.setItem("theme", isNightMode ? "night" : "light");
+        updateIcons();
+    });
+
+    function updateIcons() {
+        const isNightMode = document.body.classList.contains("night-mode");
+        const sunIcon = themeToggle.querySelector(".icon.sun");
+        const moonIcon = themeToggle.querySelector(".icon.moon");
+
+        if (isNightMode) {
+            sunIcon.style.opacity = "0";
+            sunIcon.style.transform = "scale(0.8)";
+            moonIcon.style.opacity = "1";
+            moonIcon.style.transform = "scale(1)";
+        } else {
+            sunIcon.style.opacity = "1";
+            sunIcon.style.transform = "scale(1)";
+            moonIcon.style.opacity = "0";
+            moonIcon.style.transform = "scale(0.8)";
+        }
+    }
+});
+
+
+
 
 // Manejar el cierre de todos los modales
 document.addEventListener('DOMContentLoaded', function () {
@@ -108,6 +206,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  
+
 //guardar opcion de night mode
   const toggleNightMode = () => {
     document.body.classList.toggle('night-mode');
@@ -132,103 +232,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
   
-  
-/*
-// Obtener referencias al formulario y botón
-const form = document.getElementById('contactForm');
-const submitButton = document.getElementById('submitButton');
-
-// Validación del formulario
-form.addEventListener('submit', function (e) {
-    e.preventDefault(); // Evita el envío predeterminado
-    let isValid = true;
-
-    // Validar nombre
-    const name = document.getElementById('name');
-    if (name.value.trim() === '') {
-        isValid = false;
-        name.classList.add('is-invalid');
-    } else {
-        name.classList.remove('is-invalid');
-    }
-
-    // Validar email
-    const email = document.getElementById('email');
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email.value)) {
-        isValid = false;
-        email.classList.add('is-invalid');
-    } else {
-        email.classList.remove('is-invalid');
-    }
-
-    // Validar teléfono
-    const phone = document.getElementById('phone');
-    if (phone.value.trim() === '') {
-        isValid = false;
-        phone.classList.add('is-invalid');
-    } else {
-        phone.classList.remove('is-invalid');
-    }
-
-    // Validar mensaje
-    const message = document.getElementById('message');
-    if (message.value.trim() === '') {
-        isValid = false;
-        message.classList.add('is-invalid');
-    } else {
-        message.classList.remove('is-invalid');
-    }
-
-    // Si es válido, envía el formulario
-    if (isValid) {
-        sendFormData();
-    }
-});
-
-// Verificar todos los campos y habilitar el botón
-form.addEventListener('input', () => {
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const message = document.getElementById('message').value.trim();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    const isFormValid = name && email && phone && message && emailRegex.test(email);
-
-    submitButton.disabled = !isFormValid;  // Deshabilita el botón si el formulario no es válido
-});
-
-// Envío del formulario con fetch
-function sendFormData() {
-    const formData = new FormData(form);
-
-    fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-            'Accept': 'application/json',
-        },
-    })
-        .then(response => {
-            if (response.ok) {
-                document.getElementById('submitSuccessMessage').classList.remove('d-none');
-                document.getElementById('submitErrorMessage').classList.add('d-none');
-                form.reset();
-                submitButton.disabled = true; // Deshabilitar el botón tras el envío
-                submitButton.innerText = 'Message Sent'; // Cambiar el texto del botón
-            } else {
-                document.getElementById('submitErrorMessage').classList.remove('d-none');
-                document.getElementById('submitSuccessMessage').classList.add('d-none');
-            }
-        })
-        .catch(() => {
-            document.getElementById('submitErrorMessage').classList.remove('d-none');
-            document.getElementById('submitSuccessMessage').classList.add('d-none');
-        });
-}
-*/
-
 // Obtener referencias al formulario y botón
 const form = document.getElementById('contactForm');
 const submitButton = document.getElementById('submitButton');
@@ -376,3 +379,25 @@ document.addEventListener("DOMContentLoaded", () => {
     handleScroll(); // Para animar los elementos que ya están visibles
   });
   
+
+
+  const modal = document.querySelector('.modal');
+const openButton = document.querySelector('.open-modal-btn');
+const closeButton = document.querySelector('.close-modal-btn');
+
+// Abrir modal
+openButton.addEventListener('click', () => {
+  modal.classList.add('open');
+  modal.classList.remove('close');
+});
+
+// Cerrar modal
+closeButton.addEventListener('click', () => {
+  modal.classList.add('close');
+  modal.classList.remove('open');
+
+  // Retraso para ocultar completamente el modal después de la animación
+  setTimeout(() => {
+    modal.style.display = 'none';
+  }, 300); // Duración igual al tiempo de la transición
+});

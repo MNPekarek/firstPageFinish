@@ -32,12 +32,24 @@
     // Estilos base para el modal
     transition: opacity 0.3s ease; // Transición al mostrar u ocultar el modal
     opacity: 0;
-    animation: fadeIn 0.3s ease-in-out;
+    transform: translateY(-50px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    margin-top: 25px;
 
-    &.show {
-      opacity: 1;
-      pointer-events: auto; // Permite interactividad solo si el modal está visible
+    &.open {
+      opacity: 1; 
+      transform: translateY(0px);
     }
+
+    &.close {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+
+     &.show {
+       opacity: 1;
+       pointer-events: auto; // Permite interactividad solo si el modal está visible
+     }
   }
 
   .modal-dialog {

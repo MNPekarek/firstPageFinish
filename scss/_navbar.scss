@@ -1,7 +1,6 @@
 @use "mixin";
 @use "var";
-
-
+ 
 
 // Estilos base para la barra de navegación
 .navbar {
@@ -11,162 +10,191 @@
   z-index: 1030;
   background-color: rgba(255, 255, 255, 0.9);
   transition: background-color 0.3s ease-in-out; // Transición suave
-    &.navbar-transparent {
-      background-color: transparent !important;
-      transition: background-color 0.3s ease-in-out; // Transición suave
+
+  &.navbar-transparent {
+    background-color: transparent !important;
+    transition: background-color 0.3s ease-in-out; // Transición suave
+  }
+
+  .navbar-default {
+    background-color: rgba(0, 0, 0, 0.8); // Fondo oscuro semitransparente
+  }
+
+  @include mixin.max-width-991 {
+    background-color: rgba(33, 37, 41, 0.9) !important;
+  }
+
+  &#mainNav {
+    // ID específico de la barra de navegación principal
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: rgba(33, 37, 41, 0.9);
+    transition: paddin-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+
+    @include mixin.min-width-992 {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      background-color: transparent;
+
     }
-  
-    .navbar-default {
-      background-color: rgba(0, 0, 0, 0.8); // Fondo oscuro semitransparente
-    }
-  
-    @include mixin.max-width-991 {
-      background-color: rgba(33, 37, 41, 0.9) !important;
-    }
-  
-    &#mainNav {
-      // ID específico de la barra de navegación principal
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-      background-color: rgba(33, 37, 41, 0.9);
-      transition: paddin-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
-  
+
+    .navnav {
       @include mixin.min-width-992 {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-        background-color: transparent;
-  
-      }
-  
-      .navnav {
-        @include mixin.min-width-992 {
-          padding-top: 1rem;
-          padding-bottom: 1rem;
-          background-color: rgb(33, 37, 41);
-        }
-  
-        .navbar-brand {
-          font-size: 1.25em;
-        }
-      }
-    }
-  
-  
-    .container {
-      // Contenedor general de la navegación
-  
-      .navbar-brand {
-        // Estilos para el logo o texto de la marca
-        color: rgb(255, 200, 0);
-        font-weight: 700;
-        letter-spacing: 0.0625em;
-        text-transform: uppercase;
-  
-        @include mixin.min-width-992 {
-          font-size: 1.5rem;
-          transition: font-size 0.3s ease-in-out;
-        }
-  
-        img {
-          // Estilos para la imagen del logo
-          height: 1.5rem;
-  
-          @include mixin.min-width-992 {
-            height: 2.5rem;
-            transition: height 0.3s ease-in-out;
-          }
-  
-        }
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color: rgb(33, 37, 41);
       }
 
-      button{
-        background-color: transparent;
-        border-color: transparent;
-        color: white;
+      .navbar-brand {
+        font-size: 1.25em;
       }
-  
-      .navbar-toggler {
-        // Estilos para el botón colapsable
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        font-weight: 700;
-        padding: 0.75rem;
-  
-        i {
-          // Ícono dentro del botón
+    }
+  }
+
+
+  .container {
+    // Contenedor general de la navegación
+
+    .navbar-brand {
+      // Estilos para el logo o texto de la marca
+      color: rgb(255, 200, 0);
+      font-weight: 700;
+      letter-spacing: 0.0625em;
+      text-transform: uppercase;
+
+      @include mixin.min-width-992 {
+        font-size: 1.5rem;
+        transition: font-size 0.3s ease-in-out;
+      }
+
+      img {
+        // Estilos para la imagen del logo
+        height: 1.5rem;
+
+        @include mixin.min-width-992 {
+          height: 2.5rem;
+          transition: height 0.3s ease-in-out;
+        }
+
+      }
+    }
+
+    button {
+      //  background-color: transparent;
+      //  border-color: transparent;
+      //  color: white;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;      
+      border-radius: 50%;;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      @include mixin.min-width-992{
+        margin-left: 15rem;
+      }      
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      .icon {        
+        font-size: 24px;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;        
+      }
+      .sun{
+        color: #ffcc00;
+      }
+      .moon {
+        color: #ffffff;
+      }
+      
+    }
+
+
+    .navbar-toggler {
+      // Estilos para el botón colapsable
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0.75rem;
+
+      i {
+        // Ícono dentro del botón
+      }
+    }
+
+    .collapse {
+      &.navbar-collapse {
+
+        // Estilos para la sección colapsable
+        button {
+          background-color: transparent;
+          border-color: transparent;
+          color: white;
+        }
+
+        .nav-item {
+
+          // Estilos para cada elemento de la lista
+          @include mixin.min-width-992 {
+            margin-right: 1rem;
+          }
+
+          .nav-link {
+            // Estilos para los enlaces de navegación
+            font-size: 0.95rem;
+            color: #fff;
+            letter-spacing: 0.0625em;
+
+            &.active {
+              // Estilos para el enlace activo               
+
+              font-size: 1.2rem;
+              font-weight: bold;
+              background: linear-gradient(90deg, var.$colortext1, var.$colortext2, var.$colortext3, var.$colortext4);
+              background-size: 200% 200%;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              animation: gradient-animation 3s ease infinite;
+              text-align: center;
+
+
+              @keyframes gradient-animation {
+                0% {
+                  background-position: 0% 50%;
+                }
+
+                50% {
+                  background-position: 100% 50%;
+                }
+
+                100% {
+                  background-position: 0% 50%;
+                }
+              }
+
+
+
+            }
+          }
         }
       }
-  
+    }
+  }
+}
+
+body.night-mode {
+  .navbar {
+    .container {
       .collapse {
         &.navbar-collapse {
-  
-          // Estilos para la sección colapsable
-          button{
-            background-color: transparent;
-            border-color: transparent;
-            color: white;            
-          }
-          .nav-item {
-  
-            // Estilos para cada elemento de la lista
-            @include mixin.min-width-992 {
-              margin-right: 1rem;
-            }
-  
-            .nav-link {
-              // Estilos para los enlaces de navegación
-              font-size: 0.95rem;
-              color: #fff;
-              letter-spacing: 0.0625em;
-  
-              &.active {
-                // Estilos para el enlace activo               
-  
-                font-size: 1.2rem;
-                font-weight: bold;
-                background: linear-gradient(90deg, var.$colortext1, var.$colortext2, var.$colortext3, var.$colortext4);
-                background-size: 200% 200%;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                animation: gradient-animation 3s ease infinite;
-                text-align: center;
-  
-  
-                @keyframes gradient-animation {
-                  0% {
-                    background-position: 0% 50%;
-                  }
-  
-                  50% {
-                    background-position: 100% 50%;
-                  }
-  
-                  100% {
-                    background-position: 0% 50%;
-                  }
-                }
-  
-  
-  
-              }
-            }
+          button {
+            color: #918686;
           }
         }
       }
     }
   }
-  
-  body.night-mode {
-    .navbar {
-      .container {
-        .collapse{
-          &.navbar-collapse{
-            button{
-              color: #918686;
-            }
-          }
-        }
-      }
-    }
-  }
-  
+}
+
