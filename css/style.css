@@ -136,32 +136,58 @@ to {
   }
 }
 .navbar .container button {
+  position: relative;
+  width: 50px;
+  height: 50px;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  border-radius: 50%;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease;
+}
+.navbar .container button:active {
+  transform: scale(0.95);
+}
+.navbar .container button.rotate {
+  animation: spin 0.6s ease-in-out forwards;
 }
 @media (min-width: 992px) {
   .navbar .container button {
     margin-left: 15rem;
   }
 }
-.navbar .container button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
 .navbar .container button .icon {
+  position: absolute;
   font-size: 24px;
   opacity: 0;
-  transform: scale(0.8);
   transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+.navbar .container button:hover {
+  animation: pulse 1.5s infinite;
 }
 .navbar .container button .sun {
   color: #ffcc00;
 }
 .navbar .container button .moon {
   color: #ffffff;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 .navbar .container .navbar-toggler {
   font-size: 0.75rem;
@@ -208,6 +234,26 @@ to {
 
 body.night-mode .navbar .container .collapse.navbar-collapse button {
   color: #918686;
+}
+
+body.night-mode .sun {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+body.night-mode .moon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+body:not(.night-mode) .sun {
+  opacity: 1;
+  transform: scale(1);
+}
+
+body:not(.night-mode) .moon {
+  opacity: 0;
+  transform: scale(0.8);
 }
 
 header.masthead {

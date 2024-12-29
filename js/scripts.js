@@ -154,6 +154,15 @@ document.addEventListener("DOMContentLoaded", () => {
     updateIcons();
 
     themeToggle.addEventListener("click", () => {
+        // Agregar clase rotate para la animación
+        themeToggle.classList.add("rotate");
+
+        // Remover la clase después de la duración de la animación (0.6s)
+        setTimeout(() => {
+            themeToggle.classList.remove("rotate");
+        }, 600);
+
+        // Cambiar el tema
         document.body.classList.toggle("night-mode");
         const isNightMode = document.body.classList.contains("night-mode");
         localStorage.setItem("theme", isNightMode ? "night" : "light");
@@ -178,6 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
 
 
 
