@@ -93,12 +93,20 @@
       cursor: pointer;
       transition: transform 0.2s ease; //rotacion del boton
 
-      &:active {
-        transform: scale(0.95); //pequeña reduccion al hacer click
-      }
+        // Solo reducir al hacer clic, pero no mientras gira
+    &:not(.rotate):active {
+      transform: scale(0.95); // Pequeña reducción al hacer clic
+  }
 
       &.rotate {
         animation: spin 0.6s ease-in-out forwards; //rotacion completa
+      }
+
+      //hover aplicado solo en dispositivos de escritorio
+      @media (hover: hover) {
+        &:hover {
+          transform: scale(1.1);
+        }
       }
 
       @include mixin.min-width-992 {
@@ -112,9 +120,6 @@
         transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
       }
 
-      &:hover {
-        animation: pulse 1.5s infinite;
-      }
 
       .sun {
         color: #ffcc00;
@@ -134,22 +139,6 @@
         transform: rotate(360deg);
       }
     }
-
-    // Animación de pulso
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.1);
-      }
-
-      100% {
-        transform: scale(1);
-      }
-    }
-
 
     .navbar-toggler {
       // Estilos para el botón colapsable

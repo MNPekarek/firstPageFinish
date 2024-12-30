@@ -144,11 +144,16 @@ to {
   cursor: pointer;
   transition: transform 0.2s ease;
 }
-.navbar .container button:active {
+.navbar .container button:not(.rotate):active {
   transform: scale(0.95);
 }
 .navbar .container button.rotate {
   animation: spin 0.6s ease-in-out forwards;
+}
+@media (hover: hover) {
+  .navbar .container button:hover {
+    transform: scale(1.1);
+  }
 }
 @media (min-width: 992px) {
   .navbar .container button {
@@ -160,9 +165,6 @@ to {
   font-size: 24px;
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
-}
-.navbar .container button:hover {
-  animation: pulse 1.5s infinite;
 }
 .navbar .container button .sun {
   color: #ffcc00;
@@ -176,17 +178,6 @@ to {
   }
   to {
     transform: rotate(360deg);
-  }
-}
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
   }
 }
 .navbar .container .navbar-toggler {
