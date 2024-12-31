@@ -270,7 +270,7 @@ header.masthead .container {
 }
 header.masthead .container .masthead-subheading {
   font-family: "Agu Display", serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-style: italic;
   line-height: 1.5rem;
   margin-bottom: 25px;
@@ -284,7 +284,7 @@ header.masthead .container .masthead-subheading {
   }
 }
 header.masthead .container .masthead-heading {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 3.25rem;
   margin-bottom: 2rem;
@@ -317,6 +317,12 @@ header.masthead .container .btn-xl:hover {
   background-color: #ff3d5c;
   /* Color de fondo al pasar el mouse */
   transform: scale(1.1);
+}
+@media (max-width: 768px) {
+  header.masthead .container .btn-xl {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
 }
 
 #services.page-section {
@@ -985,8 +991,11 @@ form textarea.is-invalid ~ .invalid-feedback {
   /* Color de fondo al pasar el mouse */
   transform: scale(1.1);
 }
-#submitButton:hover {
-  transform: scale(1.05);
+@media (max-width: 768px) {
+  #submitButton {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
 }
 #submitButton:disabled {
   background-color: #ff526f;

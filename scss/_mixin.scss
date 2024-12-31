@@ -129,6 +129,13 @@ to {
   }
 }
 
+// Mixin para media query de ancho maximo de 768px
+@mixin max-width-768px {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
 // Mixin para media query de ancho maximo de 991px
 @mixin max-width-991 {
   @media (max-width: 991px) {

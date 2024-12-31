@@ -50,92 +50,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-/*
-//night mode
-document.addEventListener("DOMContentLoaded", () => {
-    const themeToggle = document.getElementById("theme-toggle");
 
-    // Consulta de tema: aplica el modo oscuro según la preferencia del sistema
-    if (!localStorage.getItem("theme")) {
-        const prefersNight = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        if (prefersNight) {
-            document.body.classList.add("night-mode");
-            themeToggle.textContent = "☀️";
-        }
-    } else {
-        // Aplica el tema guardado en localStorage
-        const currentTheme = localStorage.getItem("theme");
-        if (currentTheme === "night") {
-            document.body.classList.add("night-mode");
-            themeToggle.textContent = "☀️";
-        }
-    }
-
-    // Escucha el cambio de tema
-    themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("night-mode");
-        const isNightMode = document.body.classList.contains("night-mode");
-
-        // Cambia texto del botón
-        themeToggle.textContent = isNightMode ? "☀️" : "🌙";
-
-        // Guarda la preferencia
-        localStorage.setItem("theme", isNightMode ? "night" : "light");
-    });
-});
-*/
-
-
-/*
-//night mode
-document.addEventListener("DOMContentLoaded", () => {
-    const themeToggle = document.getElementById("theme-toggle");
-
-    // Consulta de tema: aplica el modo oscuro según la preferencia del sistema
-    if (!localStorage.getItem("theme")) {
-        const prefersNight = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        if (prefersNight) {
-            document.body.classList.add("night-mode");
-        }
-    } else {
-        // Aplica el tema guardado en localStorage
-        const currentTheme = localStorage.getItem("theme");
-        if (currentTheme === "night") {
-            document.body.classList.add("night-mode");
-        }
-    }
-
-    // Actualiza el estado inicial de los íconos
-    updateIcons();
-
-    // Escucha el cambio de tema
-    themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("night-mode");
-
-        // Guarda la preferencia
-        const isNightMode = document.body.classList.contains("night-mode");
-        localStorage.setItem("theme", isNightMode ? "night" : "light");
-
-        // Actualiza los íconos
-        updateIcons();
-    });
-
-    function updateIcons() {
-        const isNightMode = document.body.classList.contains("night-mode");
-        const sunIcon = themeToggle.querySelector(".icon.sun");
-        const moonIcon = themeToggle.querySelector(".icon.moon");
-
-        if (isNightMode) {
-            sunIcon.style.opacity = "1";
-            moonIcon.style.opacity = "0";
-        } else {
-            sunIcon.style.opacity = "0";
-            moonIcon.style.opacity = "1";
-        }
-    }
-});
-*/
-
+// night mode
 document.addEventListener("DOMContentLoaded", () => {
     const themeToggle = document.getElementById("theme-toggle");
 
@@ -448,3 +364,5 @@ closeButton.addEventListener('click', () => {
     modal.style.display = 'none';
   }, 300); // Duración igual al tiempo de la transición
 });
+
+

@@ -79,10 +79,10 @@ form {
   @include mixin.btn-xl();
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-
-  &:hover {
-    transform: scale(1.05);
-  }
+  @include mixin.max-width-768px{
+    font-size: 1rem;
+    padding: 0.8rem 1rem;        
+  }  
 
   &:disabled {
     background-color: var.$colortext2;

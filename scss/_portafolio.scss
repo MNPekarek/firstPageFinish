@@ -92,11 +92,6 @@
                 margin: 0px auto;
                 color: #ffc400;
   
-                &:hover {
-                  // Estilos para hover del enlace
-  
-                }
-  
                 .portfolio-hover {
                   // Estilos para la capa de hover
                   display: flex;
@@ -113,10 +108,6 @@
                     // Estilos para el contenido del hover
                     font-size: 1.25rem;
                     color: white;
-  
-                    .fa-3x {
-                      // Estilos para el ícono en hover
-                    }
                   }
                 }
   
@@ -199,13 +190,8 @@
                   position: relative;
                   display: block;
                   margin: 0px auto;
-                  color: #ffc400;
-    
-                  &:hover {
-                    // Estilos para hover del enlace
-    
-                  }
-    
+                  color: #ffc400;  
+
                   .portfolio-hover {
                     // Estilos para la capa de hover
                     display: flex;
@@ -222,15 +208,7 @@
                       // Estilos para el contenido del hover
                       font-size: 1.25rem;
                       color: white;
-    
-                      .fa-3x {
-                        // Estilos para el ícono en hover
-                      }
                     }
-                  }
-    
-                  img {
-                    // Estilos para la imagen del ítem
                   }
                 }
     
