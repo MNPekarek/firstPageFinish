@@ -438,29 +438,29 @@
                     <div class="col-md-6">
                         <div class="form-group">
 
-                            <input class="form-control" id="name" type="text" placeholder="Your Name *" name="name"
-                                data-error-message="Por favor, ingrese su nombre" required />
+                            <input class="form-control" id="name" type="text" placeholder="Your Name *" name="name" minlength="5" maxlength="100"
+                                data-error-message="Por favor, ingrese un nombre válido. Ejemplo: John Doe" required />
                             <div class="invalid-feedback"></div>
 
                         </div>
                         <div class="form-group">
 
                             <input class="form-control" id="email" type="email" placeholder="Your Email *" name="email"
-                                data-error-message="Ingrese un correo electronico válido." required />
+                                data-error-message="Ingrese un correo electrónico válido. Ejemplo: nombre@dominio.com" required />
                             <div class="invalid-feedback"></div>
                         </div>
                         <div class="form-group">
 
-                            <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" name="phone"
-                                data-error-message="Ingrese un numero de telefono" required />
+                            <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" name="phone" minlength="9" maxlength="15"
+                                data-error-message="Ingrese un número de teléfono válido. Ejemplo: +54 123456789" required />
                             <div class="invalid-feedback"></div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
 
-                            <textarea class="form-control" id="message" placeholder="Your Message *" name="message"
-                                data-error-message="Ingrese su mensaje" required></textarea>
+                            <textarea class="form-control" id="message" placeholder="Your Message *" name="message" minlength="20" maxlength="100"
+                                data-error-message="Por favor, escriba su mensaje. No puede estar vacío." required></textarea>
                             <div class="invalid-feedback"></div>
                         </div>
                     </div>

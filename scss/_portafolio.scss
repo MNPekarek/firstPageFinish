@@ -41,6 +41,9 @@
             border: #2e2c2c;
             color: #121212;
             background-color: #f4f0f0;
+            @include mixin.max-width-991{
+              margin: 10px;
+            }
             &:hover{
               background-color: var.$colortext2;
             }
@@ -122,6 +125,10 @@
                   border-radius: 10px;
                   height: 400px;
                   width: 450px;
+                  @include mixin.max-width-991 {
+                    height: 300px;
+                    width: 400px;
+                  }
                 }
               }
   

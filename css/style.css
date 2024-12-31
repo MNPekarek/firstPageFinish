@@ -408,6 +408,11 @@ body.night-mode #services.page-section .container .row p {
   color: #121212;
   background-color: #f4f0f0;
 }
+@media (max-width: 991px) {
+  .page-section#portfolio .container .text-center button {
+    margin: 10px;
+  }
+}
 .page-section#portfolio .container .text-center button:hover {
   background-color: #ff526f;
 }
@@ -465,6 +470,13 @@ body.night-mode #services.page-section .container .row p {
   border-radius: 10px;
   height: 400px;
   width: 450px;
+}
+@media (max-width: 991px) {
+  .page-section#portfolio .container .row .col-lg-4 .portfolio-item .portfolio-link img,
+  .page-section#portfolio .container .row .col-sm-6 .portfolio-item .portfolio-link img {
+    height: 300px;
+    width: 400px;
+  }
 }
 .page-section#portfolio .container .row .col-lg-4 .portfolio-item .portfolio-caption,
 .page-section#portfolio .container .row .col-sm-6 .portfolio-item .portfolio-caption {
@@ -983,20 +995,20 @@ form textarea.is-invalid ~ .invalid-feedback {
 
 #submitSuccessMessage,
 #submitErrorMessage {
-  margin-top: 30px;
-  padding: 20px;
-  border-radius: 5px;
-  text-align: center;
+  margin-top: 1rem;
+  padding: 1rem;
 }
 
 #submitSuccessMessage {
   background-color: #28a745;
-  color: white;
+  border: 1px solid #c3e6cb;
+  color: #155724;
 }
 
 #submitErrorMessage {
   background-color: #dc3545;
-  color: white;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }
 
 .footer {

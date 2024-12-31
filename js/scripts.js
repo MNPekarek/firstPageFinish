@@ -256,14 +256,38 @@ function validateField(field, regex = null) {
         if (!regex.test(value)) {
             field.classList.add('is-invalid');
             field.classList.remove('is-valid');
-            if (invalidFeedback) invalidFeedback.textContent = field.dataset.errorMessage || 'Campo no válido.';
+            if (invalidFeedback) {
+                invalidFeedback.textContent = field.dataset.errorMessage || 
+                    (field.type === 'email' ? 'Formato de correo no válido.' : 'Campo no válido.');
+            }
             return false;
         }
     } else {
         if (!value) {
             field.classList.add('is-invalid');
             field.classList.remove('is-valid');
-            if (invalidFeedback) invalidFeedback.textContent = field.dataset.errorMessage || 'Este campo es obligatorio.';
+            if (invalidFeedback) {
+                invalidFeedback.textContent = field.dataset.errorMessage || 'Este campo es obligatorio.';
+            }
+            return false;
+        }
+
+        // Validación adicional: longitud máxima
+        if (field.maxLength && value.length > field.maxLength) {
+            field.classList.add('is-invalid');
+            field.classList.remove('is-valid');
+            if (invalidFeedback) {
+                invalidFeedback.textContent = `El texto debe ser menor a ${field.maxLength} caracteres.`;
+            }
+            return false;
+        }
+         // Validación de longitud mínima (si aplica)
+         if (field.minLength && value.length < field.minLength) {
+            field.classList.add('is-invalid');
+            field.classList.remove('is-valid');
+            if (invalidFeedback) {
+                invalidFeedback.textContent = `El texto debe ser mayor a ${field.minLength} caracteres.`;
+            }
             return false;
         }
     }
@@ -319,6 +343,10 @@ function sendFormData() {
     })
         .then(response => {
             if (response.ok) {
+                document.getElementById('submitSuccessMessage').innerHTML = `
+                    <div class="text-center text-success mb-3">
+                        <strong>¡Formulario enviado exitosamente!</strong> Gracias por contactarnos. Te responderemos a la brevedad.
+                    </div>`;
                 document.getElementById('submitSuccessMessage').classList.remove('d-none');
                 document.getElementById('submitErrorMessage').classList.add('d-none');
                 form.reset();
@@ -326,11 +354,19 @@ function sendFormData() {
                 submitButton.innerText = 'Message Sent'; // Cambiar el texto del botón
                 document.querySelectorAll('.is-valid').forEach((field) => field.classList.remove('is-valid'));
             } else {
+                document.getElementById('submitErrorMessage').innerHTML = `
+                    <div class="text-center text-danger mb-3">
+                        <strong>¡Error al enviar el formulario!</strong> Inténtalo nuevamente más tarde.
+                    </div>`;
                 document.getElementById('submitErrorMessage').classList.remove('d-none');
                 document.getElementById('submitSuccessMessage').classList.add('d-none');
             }
         })
         .catch(() => {
+            document.getElementById('submitErrorMessage').innerHTML = `
+                <div class="text-center text-danger mb-3">
+                    <strong>¡Error al enviar el formulario!</strong> Verifica tu conexión a internet e inténtalo nuevamente.
+                </div>`;
             document.getElementById('submitErrorMessage').classList.remove('d-none');
             document.getElementById('submitSuccessMessage').classList.add('d-none');
         });
