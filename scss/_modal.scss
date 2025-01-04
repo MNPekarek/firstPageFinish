@@ -25,8 +25,6 @@
   @include mixin.min-width-1200{
     left: 4.5%;
   }
-
-
   
   &.modal {
     // Estilos base para el modal
@@ -93,7 +91,6 @@
     img {
       // Estilos para el ícono de cerrar
       width: 60%;
-
     }
   }
 
@@ -102,11 +99,9 @@
 
     // Estilos para el contenedor principal
     .row {
-
       // Estilos para la fila
       .col-lg-8 {
         // Estilos para la columna que contiene el contenido del modal
-
         .modal-body {
           // Estilos específicos para el cuerpo del modal
           padding: 1rem;
@@ -117,15 +112,12 @@
             margin-bottom: 1rem;
             font-weight: 700;
           }
-
           .item-intro {
             // Estilos para el texto introductorio
             font-style: italic;
             margin-bottom: 1rem;
             font-size: 1rem;
-
           }
-
           img {
             // Estilos para las imágenes dentro del modal
             margin: 1rem 0;
@@ -175,11 +167,6 @@
             &:hover {
               background-color: var.$bg-btn-close-hover;
             }
-
-            &.btn-primary {
-              // Estilos específicos para el botón primario
-            }
-
             i {
               // Estilos para el ícono dentro del botón
               overflow: visible;
@@ -202,7 +189,7 @@ body.night-mode{
         .col-lg-8{
           .modal-body{
             p{
-              color: var.$color-muted-dark;
+              color: var.$text-muted-dark;
             }  
             .btn{
               background-color: var.$bg-btn-close-hover;

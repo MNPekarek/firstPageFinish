@@ -1,10 +1,11 @@
 @use "mixin";
+@use "var";
 
 // Sección del team
 .page-section {
   
     &#team {
-      background-color: #f9f9f9;
+      background-color: var.$bg-light2;
       .container {
         // Contenedor principal
   
@@ -20,7 +21,6 @@
           .section-subheading {
             // Subtítulo
             @include mixin.subtitles; 
-            color: rgba(108, 117, 125, 0.75); // Gris tenue
           }
         }
   
@@ -80,13 +80,7 @@
               .text-center {
                 p {
                   line-height: 1.75;
-                  color: #808080;
-                  
-  
-                  &.large {
-                    // Texto final estilizado
-                    
-                  }
+                  color: var.$color-muted;
                 }
               }
             }
@@ -101,7 +95,7 @@
     .page-section {
     
       &#team {
-        background-color: #2e2c2c;
+        background-color: var.$bg-night2;
         .container {
           // Contenedor principal
     
@@ -111,12 +105,13 @@
             .section-heading {
               // Título principal
               @include mixin.title; 
+              color: var.$text-title-dark
             }
     
             .section-subheading {
               // Subtítulo
               @include mixin.subtitles; 
-              color: #808080;
+              color: var.$text-muted-dark;
             }
           }
     
@@ -149,7 +144,7 @@
     
                 p {
                   line-height: 1.75;
-                  color: #808080;
+                  color: var.$text-p-dark;
                 }
     
                 .btn {
@@ -157,8 +152,12 @@
                     // Botón oscuro
     
                     &.btn-social {
-                      // Botones sociales   
-                      @include mixin.btn-social;               
+                      // Botones sociales     
+                      color: #F0F0F0; 
+                      background-color: var.$bg-btnSocial-night;
+                      &:hover {
+                        background-color: var.$bg-btnSocial-night-hover;
+                      }            
                     }
                   }
                 }
@@ -176,11 +175,7 @@
                 .text-center {
                   p {
                     line-height: 1.75;
-                    color: #808080;
-    
-                    &.large {
-                      // Texto final estilizado
-                    }
+                    color: var.$text-p-dark;    
                   }
                 }
               }

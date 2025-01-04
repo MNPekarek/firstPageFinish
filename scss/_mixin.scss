@@ -1,5 +1,4 @@
 @use "var";
-@use "animation";
 
 //Mixin para modificar los botones XL
 @mixin btn-xl {
@@ -39,6 +38,7 @@
   font-size: 2.5rem;
   margin-top: 0px;
   margin-bottom: 1rem;
+  color: var.$text-title;
 }
 
 @mixin subtitles {
@@ -46,6 +46,7 @@
   font-weight: 400;
   font-style: italic;
   margin-bottom: 4rem;
+  color: var.$color-muted;
 }
 
 // Mixin animaciones

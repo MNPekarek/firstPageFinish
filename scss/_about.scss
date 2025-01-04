@@ -1,29 +1,13 @@
 @use "mixin";
 @use "var";
-@use "animation";
-
-/*
-.scroll-anim {
-  opacity: 0;
-  transform: translateY(50px); // Posición inicial de la animación
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-
-  &.in-view {
-    opacity: 1;
-    transform: translate(0, 0); // Estado final
-  }
-}
-*/
-
 
 // Sección about
 .page-section {
   // Estilos generales para la sección "About"
 
-
   &#about {
     // Personalizar contenedor
-    background-color: #fff;
+    background-color: var.$bg-light1;
 
     .container {
       .text-center {
@@ -36,16 +20,12 @@
         .section-heading {
           // Personalizar título principal
           @include mixin.title;
-          font-family: "Agu Display", serif;
-          // @include mixin.animate(fadeDown, 0.6s, ease-out, 0.4s);        
+          font-family: "Agu Display", serif;                  
         }
 
         .section-subheading {
           // Personalizar subtítulo
-          @include mixin.subtitles;
-          color: var.$color-muted;
-          // @include mixin.animate(fadeUp, 0.6s, ease-out, 0.4s);
-
+          @include mixin.subtitles;       
         }
       }
     }
@@ -131,10 +111,7 @@
       border-style: solid;
       border-color: rgb(233, 236, 239);
       border-image: initial;
-      border-radius: 100%;
-
-      // @include mixin.scroll-animation(y, 50px, 0.8s, ease-out);      
-
+      border-radius: 100%; 
 
       @include mixin.min-width-768 {
         left: 50%;
@@ -155,21 +132,7 @@
         margin-left: -85px;
       }
     }
-    // .zoomIn {
-      // @include mixin.zoomIn();
-    // }
-
-
-    // Panel de contenido
-    // .fade-responsive {
-    // @include mixin.animate(fadeUp, 0.6s, ease-out, 0.4s); // Animación por defecto para pantallas pequeñas
-
-    // @media (min-width: 768px) {
-    // Cambia a `fadeRight` en pantallas grandes
-    // @include mixin.animate(fadeRight, 0.6s, ease-out, 0.4s);
-    // }
-    // }
-
+  
     .timeline-panel {
       // Encabezado del panel      
       position: relative;
@@ -178,9 +141,6 @@
       text-align: left;
       padding: 0px 20px 0px 100px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-      // @include mixin.scroll-animation(y, 50px, 0.8s, ease-out);
-
       &:hover {
         transform: scale(1.05); //aumenta ligeramente el tamaño
         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
@@ -233,11 +193,7 @@
 }
 
 // Estilo para los elementos invertidos
-.timeline-inverted {
-  // .fadeUp-inverted {
-  // @include mixin.animate(fadeUp, 0.6s, ease-out, 0.4s);
-  // }
-
+.timeline-inverted { 
   // Personalizar elementos alternados  
   .timeline-panel {
     float: left; //los paneles alternados se alinean a la derecha
@@ -289,15 +245,15 @@ body.night-mode {
 
   // Sección principal
   .page-section#about {
-    background-color: var.$bg-dark;
+    background-color: var.$bg-night1;
 
     .text-center {
       .section-heading {
-        color: var.$text-dark;
+        color: var.$text-title-dark;
       }
 
       .section-subheading {
-        color: var.$color-muted-dark;
+        color: var.$text-muted-dark;
       }
     }
   }
@@ -314,14 +270,14 @@ body.night-mode {
 
     .timeline-panel {
       .timeline-heading h4 {
-        color: var.$text-dark;
+        color: var.$text-title-dark;
       }
       &:hover {
         box-shadow: 0 8px 15px rgba(185, 182, 182, 0.2);
       }
 
       .timeline-body p {
-        color: var.$text-muted-dark;
+        color: var.$text-p-dark;
       }
     }
   }

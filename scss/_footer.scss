@@ -3,7 +3,6 @@
 
 // Footer
 .footer {
-    //padding: 1rem 0; // Ajusta el espaciado general del footer
     text-align: center;
     font-size: 0.9rem;
   
@@ -32,15 +31,17 @@
       .container{
         .row{
           .col-lg-4{
-            &.my-3 {
-              .btn-social{
-              }    
+            &.my-3 {                 
               a{
-                background-color: var.$bg-btnSocial-night-mode;
+                color: #F0F0F0; 
+                      background-color: var.$bg-btnSocial-night;
+                      &:hover {
+                        background-color: var.$bg-btnSocial-night-hover;
+                      } 
               }         
             }
             .link{
-              color: var.$color-link-night-mode;
+              color: var.$color-link-night;
             } 
           }
         }

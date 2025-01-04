@@ -3,122 +3,101 @@
 
 // Estilos para la sección "Services"
 #services {
-  
+
+  &.page-section {
+    padding: 6rem 0px;
+    background-color: var.$bg-light1;
+
+    @include mixin.min-width-768 {
+      padding: 9rem 0px;
+    }
+
+    .container {
+      .text-center {
+        .section-heading {
+          @include mixin.title;
+          font-family: "Agu Display", serif;
+
+        }
+        .section-subheading {
+          @include mixin.subtitles;          
+        }
+      }
+
+      .row {
+        .col-md-4 {
+          .fa-stack {
+            .fa-inverse {
+              
+              background: linear-gradient(90deg, var.$colortext1, var.$colortext2, var.$colortext3, var.$colortext4);
+              border-radius: 100%;
+              animation: gradient-animation 3s ease infinite;
+              text-align: center;
+
+
+              @keyframes gradient-animation {
+                0% {
+                  background-position: 0% 50%;
+                }
+
+                50% {
+                  background-position: 100% 50%;
+                }
+
+                100% {
+                  background-position: 0% 50%;
+                }
+              }
+            }
+          }
+
+          p {
+            color: var.$color-muted;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Estilos específicos para Night Mode
+body.night-mode {
+  #services {
     &.page-section {
-      padding: 6rem 0px;
-      background-color: #fff;
-  
-      @include mixin.min-width-768 {
-        padding: 9rem 0px;
-      }
-  
+      background-color: var.$bg-night1; // Fondo oscuro para toda la sección     
       .container {
-  
-  
         .text-center {
-  
-  
           .section-heading {
-            @include mixin.title;   
-            font-family: "Agu Display",serif;
-                   
+            color: var.$text-title-dark; // Títulos claros en Night Mode
           }
-  
+
           .section-subheading {
-            @include mixin.subtitles;
-            color: var.$color-muted;          
+            color: var.$text-muted-dark; // Subtítulos ligeramente más oscuros
           }
         }
-  
+
         .row {
-  
-  
           .col-md-4 {
-  
-  
             .fa-stack {
-  
-  
               .fa-circle {
-                //color: #ffc400; // Color primario
-  
+                color: #616161; // Cambia el color primario en modo nocturno
               }
-  
+
               .fa-inverse {
-                //color: #fff; // Ícono blanco encima del círculo
-                background: linear-gradient(90deg, var.$colortext1, var.$colortext2, var.$colortext3, var.$colortext4);
-                border-radius: 100%;
-                animation: gradient-animation 3s ease infinite;
-                text-align: center;
-  
-  
-                @keyframes gradient-animation {
-                  0% {
-                    background-position: 0% 50%;
-                  }
-  
-                  50% {
-                    background-position: 100% 50%;
-                  }
-  
-                  100% {
-                    background-position: 0% 50%;
-                  }
-                }
-  
-  
+                background: linear-gradient(90deg, #444, #555, #666, #777); // Gradiente ajustado para Night Mode
               }
             }
-  
-            h4 {}
-  
-            p {color: var.$color-muted;  }
+          }
+
+          h4 {
+            color: var.$text-title-dark; // Títulos dentro de los íconos
+          }
+
+          p {
+            color:var.$text-p-dark;
           }
         }
       }
     }
   }
-  // Estilos específicos para Night Mode
-  body.night-mode {
-    #services {
-      &.page-section {
-        background-color: #121212; // Fondo oscuro para toda la sección
-        color: #f5f5f5; // Texto claro
-  
-        .container {
-          .text-center {
-            .section-heading {
-              color: #e0e0e0; // Títulos claros en Night Mode
-            }
-  
-            .section-subheading {
-              color: #bdbdbd; // Subtítulos ligeramente más oscuros
-            }
-          }
-  
-          .row {
-            .col-md-4 {
-              .fa-stack {
-                .fa-circle {
-                  color: #616161; // Cambia el color primario en modo nocturno
-                }
-  
-                .fa-inverse {
-                  background: linear-gradient(90deg, #444, #555, #666, #777); // Gradiente ajustado para Night Mode
-                }
-              }
-            }
-  
-            h4 {
-              color: #e0e0e0; // Títulos dentro de los íconos
-            }
-  
-            p {
-              color: #bdbdbdc1; // Descripciones dentro de los servicios
-            }
-          }
-        }
-      }
-    }
-  }
-  
+}

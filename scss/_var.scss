@@ -1,3 +1,9 @@
+// background colors
+$bg-light1: #ffffff;
+$bg-light2: #f8f9fa;
+$bg-night1: #121212;
+$bg-night2: #2e2c2c;
+
 //background text nav
 $colortext1: #ff7eb3;
 $colortext2: #ff526f;
@@ -5,41 +11,42 @@ $colortext3: #ff616d;
 $colortext4: #ff7eb3;
 
 //header
-$color-header: #ffffff;
+$color-text-light: #ffffff;
+
 //color de botones xl
 $colorbtn: #ff526f;
-
-//color de botones xl hover
 $colorbtn-hover: #ff3d5c;
 
+//color botones sociales
+$bg-btnSocial-night: #808080;
+$bg-btnSocial-night-hover: #5A5A5A;
+
 //color contact
-$success-color: #28a745;
-$error-color: #dc3545;
+$success-color: #155724;
+$error-color: #721c24;
 $input-border-color: #ced4da;
 $input-focus-border-color: $colortext2;
 $invalid-feedback-color: $error-color;
-//$secondary-color: #6c757d;
-//$bg-color: #f8f9fa;
 
 
-$bg-light: #ffffff;
-$text-light: #000000;
-$bg-dark: #121212;
-$text-dark: #f5f5f5;
-$text-muted-dark: #808080;
-$line-color-dark: #666666;
 
+// text colors
 $color-muted: rgba(108, 117, 125, 0.75); // Gris tenue
-$color-muted-dark: rgba(255, 255, 255, 0.6); //Gris tenue en modo oscuro
+$text-muted-dark: #bdbdbd;
+$text-title: #000000;
+$text-title-dark: #e0e0e0;
+$text-light: #f5f5f5; //night mode
+$text-p-dark: #bdbdbdc1;
+
+// 
+$line-color-dark: #666666;
 
 //footer
 $color-link: #000000;
-$bg-btnSocial-night-mode: #808080;
-$color-link-night-mode: #c0bcbc;
+$color-link-night: #c0bcbc;
 
 //modal
-$bg-modal:#ffffff;
-$bg-btn-close:#333;
-$bg-btn-close-hover:#555;
-$bg-modal-night-mode:#333
-
+$bg-modal: #ffffff;
+$bg-btn-close: #333;
+$bg-btn-close-hover: #555;
+$bg-modal-night-mode: #333
