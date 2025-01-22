@@ -1,7 +1,7 @@
 @use "mixin";
 @use "var";
 
-// Estilos generales del formulario
+// General Form Styles
 #contact {
   background-color: rgb(33, 37, 41);
   background-image: url(../assets/img/map-image.webp);
@@ -21,7 +21,7 @@
   }
 }
 
-// Estilo de los campos del formulario
+// Form field styling
 form {
   .form-group {
     margin-bottom: 1.5rem;
@@ -57,21 +57,21 @@ form {
     }
   }
 
-  // Mensajes de error
+  // Error messages
   .invalid-feedback {
     display: none;
     font-size: 0.875rem;
     color: var.$invalid-feedback-color;
   }
 
-  // Mostrar los mensajes de error cuando sea necesario
+  // Show error messages when necessary
   input.is-invalid~.invalid-feedback,
   textarea.is-invalid~.invalid-feedback {
     display: block;
   }
 }
 
-// Estilo para el botón de enviar
+// Style for the submit button
 #submitButton {
   @include mixin.btn-xl();
   cursor: pointer;
@@ -87,7 +87,7 @@ form {
   }
 }
 
-// Estilo para mensajes de éxito o error
+// Style for success or error messages
 #submitSuccessMessage,
 #submitErrorMessage {
   margin-top: 1rem;

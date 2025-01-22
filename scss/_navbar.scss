@@ -1,22 +1,22 @@
 @use "mixin";
 @use "var";
 
-// Estilos base para la barra de navegación
+// Base styles for the navigation bar
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1030;
   background-color: rgba(255, 255, 255, 0.9);
-  transition: background-color 0.3s ease-in-out; // Transición suave
+  transition: background-color 0.3s ease-in-out; //Smooth transition
 
   &.navbar-transparent {
     background-color: transparent !important;
-    transition: background-color 0.3s ease-in-out; // Transición suave
+    transition: background-color 0.3s ease-in-out; // Smooth transition
   }
 
   .navbar-default {
-    background-color: rgba(0, 0, 0, 0.8); // Fondo oscuro semitransparente
+    background-color: rgba(0, 0, 0, 0.8); // Semi-transparent dark background
   }
 
   @include mixin.max-width-991 {
@@ -24,7 +24,7 @@
   }
 
   &#mainNav {
-    // ID específico de la barra de navegación principal
+    // Specific ID of the main navigation bar
     padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: rgba(33, 37, 41, 0.9);
@@ -49,13 +49,11 @@
       }
     }
   }
-
-
   .container {
-    // Contenedor general de la navegación
+    // General Navigation Container
 
     .navbar-brand {
-      // Estilos para el logo o texto de la marca
+      // Styles for the logo or brand text
       color: rgb(255, 200, 0);
       font-weight: 700;
       letter-spacing: 0.0625em;
@@ -67,7 +65,7 @@
       }
 
       img {
-        // Estilos para la imagen del logo
+        // Styles for the logo image
         height: 1.5rem;
 
         @include mixin.min-width-992 {
@@ -84,18 +82,18 @@
       background-color: transparent;
       border: none;
       cursor: pointer;
-      transition: transform 0.2s ease; //rotacion del boton
+      transition: transform 0.2s ease; //button rotation
 
-      // Solo reducir al hacer clic, pero no mientras gira
+      // Only shrink on click, but not while rotating
       &:not(.rotate):active {
-        transform: scale(0.95); // Pequeña reducción al hacer clic
+        transform: scale(0.95); // Small reduction when clicking
       }
 
       &.rotate {
-        animation: spin 0.6s ease-in-out forwards; //rotacion completa
+        animation: spin 0.6s ease-in-out forwards; //complete rotation
       }
 
-      //hover aplicado solo en dispositivos de escritorio
+      //hover applied only on desktop devices
       @media (hover: hover) {
         &:hover {
           transform: scale(1.1);
@@ -119,7 +117,7 @@
         color: #ffffff;
       }
     }
-    // Animación de rotación
+    // Rotation animation
     @keyframes spin {
       from {
         transform: rotate(0deg);
@@ -130,7 +128,7 @@
       }
     }
     .navbar-toggler {
-      // Estilos para el botón colapsable
+      // Styles for the collapsible button
       font-size: 0.75rem;
       text-transform: uppercase;
       font-weight: 700;
@@ -139,25 +137,25 @@
     .collapse {
       &.navbar-collapse {
 
-        // Estilos para la sección colapsable
+        // Styles for the collapsible section
         button {
           background-color: transparent;
           border-color: transparent;
           color: white;
         }
         .nav-item {
-          // Estilos para cada elemento de la lista
+          // Styles for each list item
           @include mixin.min-width-992 {
             margin-right: 1rem;
           }
 
           .nav-link {
-            // Estilos para los enlaces de navegación
+            // Styles for navigation links
             font-size: 0.95rem;
             color: #fff;
             letter-spacing: 0.0625em;
             &.active {
-              // Estilos para el enlace activo             
+              // Styles for the active link             
               font-size: 1.2rem;
               font-weight: bold;
               background: linear-gradient(90deg, var.$colortext1, var.$colortext2, var.$colortext3, var.$colortext4);

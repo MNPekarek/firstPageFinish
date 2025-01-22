@@ -3,28 +3,27 @@
 
 // Sección about
 .page-section {
-  // Estilos generales para la sección "About"
+  // General styles for the "About" section
 
   &#about {
-    // Personalizar contenedor
+    // Customize container
     background-color: var.$bg-light1;
 
     .container {
       .text-center {
-        // Títulos y subtítulos
-
+        // Titles and subtitles
         .scroll-anim {
           @include mixin.scroll-animation(y, 50px, 0.8s, ease-out)
         }
 
         .section-heading {
-          // Personalizar título principal
+          // Customize main title
           @include mixin.title;
           font-family: "Agu Display", serif;                  
         }
 
         .section-subheading {
-          // Personalizar subtítulo
+          // Customize subtitle
           @include mixin.subtitles;       
         }
       }
@@ -32,9 +31,9 @@
   }
 }
 
-// Línea de tiempo
+// Timeline
 .timeline {
-  // Elementos de la lista
+  // List Items
   position: relative;
   padding: 0px;
   list-style: none;
@@ -44,11 +43,11 @@
     position: absolute;
     top: 0px;
     bottom: 0px;
-    left: 40px; //centra la linea horizontalmente
-    width: 2px; //grosor de la linea 
+    left: 40px; //center the line horizontally
+    width: 2px; //line thickness 
     margin-left: -1.5px;
     content: "";
-    background-color: rgb(233, 236, 239); //color de la línea  
+    background-color: rgb(233, 236, 239); //line color
 
     //box-sizing: border-box;
     @include mixin.min-width-768 {
@@ -64,7 +63,7 @@
   }
 
   li {
-    // Imagen de la línea de tiempo
+    // Timeline image
     position: relative;
     min-height: 50px;
     margin-bottom: 50px;
@@ -134,7 +133,7 @@
     }
   
     .timeline-panel {
-      // Encabezado del panel      
+      // Panel Header      
       position: relative;
       float: right;
       width: 100%;
@@ -142,7 +141,7 @@
       padding: 0px 20px 0px 100px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       &:hover {
-        transform: scale(1.05); //aumenta ligeramente el tamaño
+        transform: scale(1.05); //slightly increase the size
         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
       }
 
@@ -164,23 +163,23 @@
 
     .timeline-heading {
       h4 {
-        // Personalizar título de las fechas
+        // Customize date titles
         margin-top: 0px;
         color: inherit;
 
       }
 
       .subheading {
-        // Personalizar subtítulo
+        // Customize subtitle
         text-transform: none;
 
       }
     }
 
-    // Cuerpo del panel
+    // panel body
     .timeline-body {
       p {
-        // Personalizar texto del cuerpo
+        // Customize body text
         margin-bottom: 0px;
         line-height: 1.75;
         color: var.$color-muted;
@@ -188,15 +187,13 @@
       }
     }
   }
-
-
 }
 
-// Estilo para los elementos invertidos
+// Style for inverted elements
 .timeline-inverted { 
-  // Personalizar elementos alternados  
+  // Customize toggle elements  
   .timeline-panel {
-    float: left; //los paneles alternados se alinean a la derecha
+    float: left; //alternating panels align to the right
     text-align: left;
     padding: 0px 20px 0px 100px;
 
@@ -214,10 +211,10 @@
   }
 }
 
-// Estilo para el último elemento (hito final)
+// Style for last element (final milestone)
 .timeline-image {
   h4 {
-    // Personalizar mensaje final
+    // Customize final message
     font-size: 10px;
     line-height: 14px;
     margin-top: 12px;
@@ -240,10 +237,10 @@
   }
 }
 
-// Estilos específicos para Night Mode
+// Night Mode Specific Styles
 body.night-mode {
 
-  // Sección principal
+  // Main section
   .page-section#about {
     background-color: var.$bg-night1;
 
@@ -258,14 +255,14 @@ body.night-mode {
     }
   }
 
-  // Línea de tiempo
+  // Timeline
   .timeline {
     &::before {
-      background-color: var.$line-color-dark; // Línea de tiempo en modo nocturno
+      background-color: var.$line-color-dark; // Timeline in night mode
     }
 
     .timeline-image {
-      border-color: var.$line-color-dark; // Color del borde de las imágenes
+      border-color: var.$line-color-dark; //Images border color
     }
 
     .timeline-panel {

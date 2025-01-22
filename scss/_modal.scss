@@ -27,8 +27,8 @@
   }
   
   &.modal {
-    // Estilos base para el modal
-    transition: opacity 0.3s ease; // Transición al mostrar u ocultar el modal
+    // Base styles for the modal
+    transition: opacity 0.3s ease; // Transition when showing or hiding the modal
     opacity: 0;
     transform: translateY(-50px);
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -46,31 +46,31 @@
 
      &.show {
        opacity: 1;
-       pointer-events: auto; // Permite interactividad solo si el modal está visible
+       pointer-events: auto; // Allow interactivity only if the modal is visible
      }
   }
 
   .modal-dialog {
-    // Estilos para el diálogo del modal
-    transition: transform 0.4s ease-in-out; // Transición más suave para el efecto de animación
+    // Styles for the modal dialog
+    transition: transform 0.4s ease-in-out; // Smoother transition for animation effect
     margin: 1rem;
     max-width: 90%;    
   }
 
   .modal-content {
-    // Estilos para el contenido del modal
+    // Styles for modal content
     padding-top: 2rem;
     text-align: center;
     position: relative;
     display: flex;
     flex-direction: column;
-    border-radius: 8px; // Bordes redondeados
+    border-radius: 8px; // rounded edges
     background-color: var.$bg-modal;
     pointer-events: auto;
   }
 
   .close-modal {
-    // Estilos para el botón de cerrar el modal
+    // Styles for the close button of the modal
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -85,11 +85,11 @@
     transition: background-color 0.2s ease;
 
     &:hover {
-      background: var.$bg-btn-close-hover; // Efecto hover para brindar interactividad
+      background: var.$bg-btn-close-hover; // Hover effect to provide interactivity
     }
 
     img {
-      // Estilos para el ícono de cerrar
+      // Styles for the close icon
       width: 60%;
     }
   }
@@ -97,29 +97,29 @@
   .container {
     width: 100%;
 
-    // Estilos para el contenedor principal
+    // Styles for the main container
     .row {
-      // Estilos para la fila
+      // Styles for the row
       .col-lg-8 {
-        // Estilos para la columna que contiene el contenido del modal
+        // Styles for the column that contains the content of the modal
         .modal-body {
-          // Estilos específicos para el cuerpo del modal
+          // Specific styles for the modal body
           padding: 1rem;
 
           h2 {
-            // Estilos para el título del proyecto
+            // Styles for the project title
             font-size: 2rem;
             margin-bottom: 1rem;
             font-weight: 700;
           }
           .item-intro {
-            // Estilos para el texto introductorio
+            // Styles for introductory text
             font-style: italic;
             margin-bottom: 1rem;
             font-size: 1rem;
           }
           img {
-            // Estilos para las imágenes dentro del modal
+            // Styles for images within the modal
             margin: 1rem 0;
             max-width: 100%;
             height: auto;
@@ -127,33 +127,33 @@
           }
 
           p {
-            // Estilos para los párrafos
+            // Paragraph styles
             margin-bottom: 1rem;
             line-height: 1.6;
             font-size: 1rem;
           }
 
           ul {
-            // Estilos para la lista de detalles
+            // Styles for the details list
             margin: 1rem 0;
             padding-left: 1.5rem;
             list-style-type: disc;
 
             li {
-              // Estilos para cada ítem de la lista
+              // Styles for each list item
               font-size: 0.9rem;
               margin-bottom: 0.5rem;
               list-style: none;
 
               strong {
-                // Estilos para los títulos de los detalles
+                // Styles for detail titles
                 font-weight: bolder;
               }
             }
           }
 
           .btn {
-            // Estilos para el botón
+            // Styles for the button
             margin: 1rem 0;
             padding: 0.75rem 1.5rem;
             font-size: 1rem;
@@ -168,7 +168,7 @@
               background-color: var.$bg-btn-close-hover;
             }
             i {
-              // Estilos para el ícono dentro del botón
+              // Styles for the icon inside the button
               overflow: visible;
               box-sizing: content-box;
             }

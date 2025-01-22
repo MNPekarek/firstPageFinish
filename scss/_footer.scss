@@ -8,13 +8,13 @@
   
     .container {
       .row {
-        // Fila principal del footer  
+        // Main footer row 
         .col-lg-4 {
-          // Columnas del footer
+          // Footer columns
           &.my-3 {
-            // Estilo para la columna central con íconos sociales
+            // Style for the center column with social icons
             .btn-social {
-              // Botones sociales
+              // Social buttons
               @include mixin.btn-social;
             }
           }

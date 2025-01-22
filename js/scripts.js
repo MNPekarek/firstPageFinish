@@ -4,14 +4,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const navbar = document.getElementById("mainNav");
         if (!navbar) return;
 
-        // Si la pantalla es menor a 992px, siempre elimina "navbar-transparent"
-        if (window.innerWidth < 992) {
+        // If the screen is smaller than 992px, always remove "navbar-transparent"
+        if (window.innerWidth <992) {
             navbar.classList.remove("navbar-transparent");
-            navbar.style.backgroundColor = ""; // Restaura el estilo predeterminado si hay uno
-            return; // Salimos para no aplicar más cambios
+            navbar.style.backgroundColor = ""; // Restores the default style if there is one
+            return; // We leave to not apply any more changes
         }
 
-        // Para pantallas mayores o iguales a 992px
+        // For screens greater than or equal to 992px
 
         if (window.scrollY === 0) {
             navbar.classList.remove("navbar-shrink", "navbar-default");
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
             navbar.classList.add("navbar-shrink", "navbar-default");
             navbar.classList.remove("navbar-transparent");
         }
-        // Asegurar comportamiento responsive
+        // Ensure responsive behavior
         if (window.innerWidth >= 992) {
             navbar.style.backgroundColor = window.scrollY === 0 ? "transparent" : "rgba(33, 37, 41, 0.9)"; //rgba(33, 37, 41, 0.9)
         }
@@ -73,12 +73,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!themeToggle.classList.contains("rotate")) {
             themeToggle.classList.add("rotate");
 
-            // Rotar el botón (desactivamos otras animaciones durante este tiempo)
+            // Rotate the button (we disable other animations during this time)
             setTimeout(() => {
                 themeToggle.classList.remove("rotate");
             }, 600);
 
-            // Cambiar el tema
+            // Change the theme
             document.body.classList.toggle("night-mode");
             const isNightMode = document.body.classList.contains("night-mode");
             localStorage.setItem("theme", isNightMode ? "night" : "light");
@@ -109,14 +109,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// Manejar el cierre de todos los modales
+// Handle closure of all modals
 document.addEventListener('DOMContentLoaded', function () {
     const modals = document.querySelectorAll('.portfolio-modal');
   
     modals.forEach(modal => {
       const closeModal = modal.querySelector('.close-modal');
   
-      // Cerrar el modal al hacer clic en el botón de cierre
+      // Close the modal when clicking the close button
       if (closeModal) {
         closeModal.addEventListener('click', (e) => {
           e.stopPropagation();
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
   
-      // Cerrar el modal si se hace clic fuera de la zona activa
+      // Close the modal if clicked outside the active area
       window.addEventListener('click', (e) => {
         if (modal.classList.contains('show') && !modal.querySelector('.modal-dialog').contains(e.target)) {
           modal.classList.remove('show');
@@ -135,13 +135,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   
 
-//guardar opcion de night mode
+//save night mode option
   const toggleNightMode = () => {
     document.body.classList.toggle('night-mode');
     localStorage.setItem('nightMode', document.body.classList.contains('night-mode'));
 };
 
-// Al cargar la página
+// When loading the page
 if (localStorage.getItem('nightMode') === 'true') {
     document.body.classList.add('night-mode');
 }
@@ -159,11 +159,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
   
-// Obtener referencias al formulario y botón
+// Get references to the form and button
 const form = document.getElementById('contactForm');
 const submitButton = document.getElementById('submitButton');
 
-// Función para validar un campo
+// Function to validate a field
 function validateField(field, regex = null) {
     const value = field.value.trim();
     const invalidFeedback = field.nextElementSibling;
@@ -188,7 +188,7 @@ function validateField(field, regex = null) {
             return false;
         }
 
-        // Validación adicional: longitud máxima
+        // Additional validation: maximum length
         if (field.maxLength && value.length > field.maxLength) {
             field.classList.add('is-invalid');
             field.classList.remove('is-valid');
@@ -197,8 +197,8 @@ function validateField(field, regex = null) {
             }
             return false;
         }
-         // Validación de longitud mínima (si aplica)
-         if (field.minLength && value.length < field.minLength) {
+         // Minimum length validation (if applicable)
+         if (field.minLength && value.length <field.minLength) {
             field.classList.add('is-invalid');
             field.classList.remove('is-valid');
             if (invalidFeedback) {
@@ -214,7 +214,7 @@ function validateField(field, regex = null) {
     return true;
 }
 
-// Validación de todos los campos en tiempo real
+// Validation of all fields in real time
 function validateForm() {
     const name = document.getElementById('name');
     const email = document.getElementById('email');
@@ -230,13 +230,13 @@ function validateForm() {
     return isNameValid && isEmailValid && isPhoneValid && isMessageValid;
 }
 
-// Escuchar eventos 'input' para cada campo
+// Listen to 'input' events for each field
 form.addEventListener('input', () => {
     const isFormValid = validateForm();
     submitButton.disabled = !isFormValid; // Habilita/deshabilita el botón de envío
 });
 
-// Validación al enviar el formulario
+// Validation when submitting the form
 form.addEventListener('submit', function (e) {
     e.preventDefault(); // Evita el envío predeterminado
     const isValid = validateForm();
@@ -246,7 +246,7 @@ form.addEventListener('submit', function (e) {
     }
 });
 
-// Envío del formulario con fetch
+// Sending the form with fetch
 function sendFormData() {
     const formData = new FormData(form);
 
@@ -266,8 +266,8 @@ function sendFormData() {
                 document.getElementById('submitSuccessMessage').classList.remove('d-none');
                 document.getElementById('submitErrorMessage').classList.add('d-none');
                 form.reset();
-                submitButton.disabled = true; // Deshabilitar el botón tras el envío
-                submitButton.innerText = 'Message Sent'; // Cambiar el texto del botón
+                submitButton.disabled = true; // Disable button after submission
+                submitButton.innerText = 'Message Sent'; // Change button text
                 document.querySelectorAll('.is-valid').forEach((field) => field.classList.remove('is-valid'));
             } else {
                 document.getElementById('submitErrorMessage').innerHTML = `
@@ -289,9 +289,9 @@ function sendFormData() {
 }
 
 
-// JavaScript para la interacción del portafolio
+// JavaScript for portfolio interaction
 
-// Filtros por categoría
+// Filters by category
 document.querySelectorAll('.filter-btn').forEach(button => {
     button.addEventListener('click', () => {
         const filter = button.getAttribute('data-filter');
@@ -306,7 +306,7 @@ document.querySelectorAll('.filter-btn').forEach(button => {
     });
 });
 
-// Búsqueda interactiva
+// Interactive search
 document.getElementById('searchBar').addEventListener('input', (event) => {
     const searchQuery = event.target.value.toLowerCase();
     document.querySelectorAll('.portfolio-item').forEach(item => {
@@ -327,42 +327,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const handleScroll = () => {
       elements.forEach((el) => {
         const rect = el.getBoundingClientRect();
-        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        const inView = rect.top <window.innerHeight && rect.bottom > 0;
   
         if (inView) {
           el.classList.add("animate");
         } else {
-          el.classList.remove("animate"); // Si quieres que la animación sea reversible
+          el.classList.remove("animate"); // If you want the animation to be reversible
         }
       });
     };
   
-    // Ejecuta el evento en scroll y al cargar la página
+    // Run the event on scroll and on page load
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Para animar los elementos que ya están visibles
+    handleScroll(); // To animate elements that are already visible
   });
   
-
-
-  const modal = document.querySelector('.modal');
-const openButton = document.querySelector('.open-modal-btn');
-const closeButton = document.querySelector('.close-modal-btn');
-
-// Abrir modal
-openButton.addEventListener('click', () => {
-  modal.classList.add('open');
-  modal.classList.remove('close');
+// general error handler
+window.addEventListener("unhandledrejection", (event) => {
+    const reason = event.reason || {};
+    const message = reason.message || reason.toString(); // Maneja casos sin .message
+    if (message.includes("is not valid JSON")) {
+        console.warn("Handled extension-related rejection:", message);
+        event.preventDefault();
+    }
 });
 
-// Cerrar modal
-closeButton.addEventListener('click', () => {
-  modal.classList.add('close');
-  modal.classList.remove('open');
 
-  // Retraso para ocultar completamente el modal después de la animación
-  setTimeout(() => {
-    modal.style.display = 'none';
-  }, 300); // Duración igual al tiempo de la transición
-});
 
 
