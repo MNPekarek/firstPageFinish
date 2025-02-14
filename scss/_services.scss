@@ -1,7 +1,7 @@
 @use "mixin";
 @use "var";
 
-// Estilos para la sección "Services"
+//Styles for the "Services" section
 #services {
 
   &.page-section {
@@ -60,19 +60,19 @@
   }
 }
 
-// Estilos específicos para Night Mode
+// Night Mode Specific Styles
 body.night-mode {
   #services {
     &.page-section {
-      background-color: var.$bg-night1; // Fondo oscuro para toda la sección     
+      background-color: var.$bg-night1; // Dark background for the entire section    
       .container {
         .text-center {
           .section-heading {
-            color: var.$text-title-dark; // Títulos claros en Night Mode
+            color: var.$text-title-dark; // Clear titles in Night Mode
           }
 
           .section-subheading {
-            color: var.$text-muted-dark; // Subtítulos ligeramente más oscuros
+            color: var.$text-muted-dark; // Slightly darker subtitles
           }
         }
 
@@ -80,17 +80,17 @@ body.night-mode {
           .col-md-4 {
             .fa-stack {
               .fa-circle {
-                color: #616161; // Cambia el color primario en modo nocturno
+                color: #616161; // Change primary color in night mode
               }
 
               .fa-inverse {
-                background: linear-gradient(90deg, #444, #555, #666, #777); // Gradiente ajustado para Night Mode
+                background: linear-gradient(90deg, #444, #555, #666, #777); // Adjusted gradient for Night Mode
               }
             }
           }
 
           h4 {
-            color: var.$text-title-dark; // Títulos dentro de los íconos
+            color: var.$text-title-dark; // Titles inside icons
           }
 
           p {

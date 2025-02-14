@@ -16,9 +16,9 @@
   transition: all 0.6s ease-out;
 }
 
-/* Estado inicial específico para cada tipo de animación */
+/* Specific initial state for each type of animation */
 [data-animation="fade-up"] {
-  transform: translateY(20px); /* Ajusta según la distancia deseada */
+  transform: translateY(20px); /* Adjusts according to the desired distance */
 }
 [data-animation="fade-down"] {
   transform: translateY(-20px);
@@ -36,7 +36,7 @@
   transform: translateX(100px);
 }
 
-/* Estado animado para cada tipo de animación */
+/* Animated state for each type of animation */
 [data-animation="fade-up"].animate {
   opacity: 1;
   transform: translateY(0);

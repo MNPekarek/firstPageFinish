@@ -31,8 +31,8 @@
     transition: paddin-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
 
     @include mixin.min-width-992 {
-      padding-top: 1.5rem;
-      padding-bottom: 1.5rem;
+      padding-top: 0.8rem;
+      padding-bottom: 0.8rem;
       background-color: transparent;
 
     }

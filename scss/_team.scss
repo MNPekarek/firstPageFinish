@@ -1,42 +1,42 @@
 @use "mixin";
 @use "var";
 
-// Sección del team
+// Team section
 .page-section {
   
     &#team {
       background-color: var.$bg-light2;
       .container {
-        // Contenedor principal
+        // Main container
   
         .text-center {
   
-          // Títulos
+          // title
           .section-heading {
-            // Título principal
+            // Main title
             @include mixin.title; 
             font-family: "Agu Display",serif;
           }
   
           .section-subheading {
-            // Subtítulo
+            // caption
             @include mixin.subtitles; 
           }
         }
   
         .row {
   
-          // Fila de miembros del equipo        
+          // Row of team members       
           .col-lg-4 {
-            // Columnas para cada miembro del equipo
+            // Columns for each team member
   
             .team-member {
-              // Estilo general para los miembros
+              // General style for members
               margin-bottom: 3rem;
               text-align: center;
   
               img {
-                // Estilo para las imágenes
+                // Style for images
                 width: 14rem;
                 height: 14rem;
                 border-width: 0.5rem;
@@ -46,22 +46,22 @@
               }
   
               h4 {
-                // Nombre del miembro
+                //Member Name
                 margin-top: 1.5rem;
                 margin-bottom: 0px;
               }
   
               p {
                 line-height: 1.75;
-                color: rgba(108, 117, 125, 0.75); // Gris tenue
+                color: rgba(108, 117, 125, 0.75); // light gray
               }
   
               .btn {
                 &.btn-dark {
-                  // Botón oscuro
+                  // dark button
   
                   &.btn-social {
-                    // Botones sociales   
+                    // Social buttons  
                     @include mixin.btn-social;               
                   }
                 }
@@ -71,12 +71,12 @@
         }
   
         .row:last-of-type {
-          // Segunda fila con la descripción
+          // Second row with the description
   
           .col-lg-8 {
             &.mx-auto {
   
-              // Columna centrada
+              //Centered column
               .text-center {
                 p {
                   line-height: 1.75;
@@ -90,26 +90,26 @@
     }
   }
   
-  // Estilos específicos para Night Mode
+  // Night Mode Specific Styles
   body.night-mode {
     .page-section {
     
       &#team {
         background-color: var.$bg-night2;
         .container {
-          // Contenedor principal
+          // Main container
     
           .text-center {
     
-            // Títulos
+            // title
             .section-heading {
-              // Título principal
+              // Main title
               @include mixin.title; 
               color: var.$text-title-dark
             }
     
             .section-subheading {
-              // Subtítulo
+              // Caption
               @include mixin.subtitles; 
               color: var.$text-muted-dark;
             }
@@ -117,17 +117,17 @@
     
           .row {
     
-            // Fila de miembros del equipo        
+            //Row of team members       
             .col-lg-4 {
-              // Columnas para cada miembro del equipo
+              // Columns for each team member
     
               .team-member {
-                // Estilo general para los miembros
+                // General style for members
                 margin-bottom: 3rem;
                 text-align: center;
     
                 img {
-                  // Estilo para las imágenes
+                  //Style for images
                   width: 14rem;
                   height: 14rem;
                   border-width: 0.5rem;
@@ -137,7 +137,7 @@
                 }
     
                 h4 {
-                  // Nombre del miembro
+                  // Member Name
                   margin-top: 1.5rem;
                   margin-bottom: 0px;
                 }
@@ -149,10 +149,10 @@
     
                 .btn {
                   &.btn-dark {
-                    // Botón oscuro
+                    // dark button
     
                     &.btn-social {
-                      // Botones sociales     
+                      // Social buttons    
                       color: #F0F0F0; 
                       background-color: var.$bg-btnSocial-night;
                       &:hover {
@@ -166,12 +166,12 @@
           }
     
           .row:last-of-type {
-            // Segunda fila con la descripción
+            // Second row with the description
     
             .col-lg-8 {
               &.mx-auto {
     
-                // Columna centrada
+                // Centered column
                 .text-center {
                   p {
                     line-height: 1.75;

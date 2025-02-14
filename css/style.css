@@ -1,4 +1,3 @@
-@charset "UTF-8";
 to {
   opacity: 1;
   transform: scale(1);
@@ -32,8 +31,8 @@ to {
 }
 @media (min-width: 992px) {
   .navbar#mainNav {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
     background-color: transparent;
   }
 }
@@ -173,7 +172,7 @@ header.masthead {
 }
 @media (min-width: 768px) {
   header.masthead {
-    background-image: url("../assets/img/header/DALLE2~1.webp");
+    background-image: url("../assets/img/header/DALLE2.webp");
     padding-top: 17rem;
     padding-bottom: 12.5rem;
   }
@@ -1079,9 +1078,9 @@ body.night-mode .portfolio-modal .container .row .col-lg-8 .modal-body .btn:hove
   transition: all 0.6s ease-out;
 }
 
-/* Estado inicial específico para cada tipo de animación */
+/* Specific initial state for each type of animation */
 [data-animation=fade-up] {
-  transform: translateY(20px); /* Ajusta según la distancia deseada */
+  transform: translateY(20px); /* Adjusts according to the desired distance */
 }
 
 [data-animation=fade-down] {
@@ -1100,7 +1099,7 @@ body.night-mode .portfolio-modal .container .row .col-lg-8 .modal-body .btn:hove
   transform: translateX(100px);
 }
 
-/* Estado animado para cada tipo de animación */
+/* Animated state for each type of animation */
 [data-animation=fade-up].animate {
   opacity: 1;
   transform: translateY(0);
